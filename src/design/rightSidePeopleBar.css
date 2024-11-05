@@ -1,0 +1,38 @@
+.right-side-people-bar{
+    width: 242px;
+    height: calc(100vh - 60px);
+    background: #111111;
+    display: flex;
+    flex-direction: column;
+    padding:0.7vw;
+    gap: 16px;
+}
+.right-side-people-bar-job-dev,
+.right-side-people-bar-job-designer
+{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.job-designer, .job-developer{
+    color: #919191;
+    font-size: 12px;
+    font-weight: bolder;
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+.job-designer > div{
+    width: 9px;
+    height: 9px;
+    background: #FFC229;
+    border-radius: 50%;
+    border :  1px solid #111111;
+}
+.job-developer > div{
+    width: 9px;
+    height: 9px;
+    background: #2982FF;
+    border-radius: 50%;
+    border :  1px solid #111111;
+}

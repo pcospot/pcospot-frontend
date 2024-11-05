@@ -1,0 +1,47 @@
+.left-sidebar{
+    width: 242px;
+    height: calc(100vh - 60px);
+    background: #111111;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding:0.7vw;
+    gap: 16px;
+}
+.left-sidebar-google-meet{
+    width: 218px;
+    height : 33px;
+    background: #171717;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: white;
+}
+.left-sidebar-google-meet> p{
+    font-size: 12px;
+    font-weight: 300;
+}
+.left-sidebar-menu{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+.left-sidebar-menu-list{
+    width: 222px;
+    height: 23px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 4px;
+}
+.left-sidebar-menu-item{
+    display: flex;
+    align-items: center;
+}
+.left-sidebar-menu-item>h1{
+    font-size: 12px;
+    font-weight: normal;
+}

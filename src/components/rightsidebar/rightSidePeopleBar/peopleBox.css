@@ -1,0 +1,23 @@
+.people-box-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.people-box-image{
+    border-radius: 50%;
+    height: 28px;
+    width: 28px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+}
+.people-box-online{
+    width: 8px;
+    height: 8px;
+    outline: 2px solid #111111;
+    border-radius: 50%;
+}
+.people-box-name{
+    font-size: 12px;
+    font-weight: normal;
+}

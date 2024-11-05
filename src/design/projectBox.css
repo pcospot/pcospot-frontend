@@ -1,0 +1,32 @@
+.projectBox-container {
+    width: 218px;
+    height: 100px;
+    background: #171717;
+    border-radius:12px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: start;
+}
+.projectBox-container > h1{
+    font-size: 20px;
+    font-weight: bold;
+}
+.projectBox-container>div > p{
+    font-size: 12px;
+    color: #00E984;
+    font-weight: normal;
+}
+.projectBox-container-progress {
+    width: 186px;
+    height: 4px;
+    background: #111111 !important;
+    border-radius: 100px;
+    margin-top: 8px;
+}
+#projectBox-progress-bar{
+    height: 4px;
+    background : #00E984;
+    border-radius: 100px;
+}

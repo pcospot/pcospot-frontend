@@ -1,0 +1,64 @@
+button {
+    background: none;
+    border-radius: 12px;
+    position: relative;
+    overflow: hidden;
+}
+
+.arcaived-background {
+    position: relative;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); /
+    z-index: 1;
+}
+
+.alarmOne,
+.alarmTen,
+.alarmHun {
+    border-radius: 100px;
+    color: white;
+    background-color: #FF5151;
+    outline: 3px solid #171717;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.alarmOne {
+    width: 13px;
+    height: 13px;
+}
+
+.alarmTen {
+    width: 18px;
+    height: 13px;
+}
+
+.alarmHun {
+    width: 24px;
+    height: 13px;
+}
+
+.alarmHun > p,
+.alarmOne > p,
+.alarmTen > p {
+    font-size: 8px;
+    font-weight: bold;
+}
+
+.arcaived-disk {
+    outline: 3px solid #171717;
+    background-color: #171717;
+    width: 13px;
+    height: 13px;
+    border-radius: 100px;
+    position: relative; /* 상대 위치 설정 */
+    z-index: 2; /* 디스크가 오버레이 위에 표시되도록 설정 */
+}

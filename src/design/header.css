@@ -1,0 +1,24 @@
+h1{
+    font-weight: bold;
+    color: white;
+    font-size: 20px;
+}
+header{
+    background: #171717;
+    width: 100vw;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 1vw;
+    gap: 1vw;
+}
+button{
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+}
