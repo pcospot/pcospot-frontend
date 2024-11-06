@@ -4,13 +4,19 @@ import RightSideServerBar from "../components/rightsidebar/rightSideServerBar/ri
 import '../design/mainPage.css'
 import RightSidePeopleBar from "../components/rightsidebar/rightSidePeopleBar/rightSidePeopleBar.tsx";
 import ChatInput from "../components/chat/chatInput.tsx";
+import ChatList from "../components/chat/chatList/chatList.tsx";
+import "../components/chat/chatList/chatList.css"
 function MainPage() {
 
     return (
         <>
             <div className="mainPage">
                 <LeftSidebar />
-                <ChatInput/>
+                <div className="chat">
+                    <ChatList>
+                        <ChatInput/>
+                    </ChatList>
+                </div>
                 <div style={{display: 'flex'}}>
                     <RightSidePeopleBar/>
                     <RightSideServerBar/>
