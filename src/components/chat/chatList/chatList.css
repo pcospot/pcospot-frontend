@@ -1,0 +1,16 @@
+.chatList-container {
+    height: 110%;
+    color: white;
+    width: calc(97vw - 544px);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    overflow: scroll;
+    padding-top: 22px;
+    gap: 1rem;
+    box-sizing: border-box;
+}
+.chatList-container-box{
+    min-height: 100px;
+    width: calc(97vw - 544px);
+}
