@@ -41,7 +41,7 @@ export default function ChatInput() {
 
     return (
         <div className="chatInput-container">
-            <Modal width="calc(95vw - 544px)" height={200} onOpen={isModalOpen} onClose={() => setIsModalOpen(false)} className="chatInput-modal">
+            <Modal width="calc(95vw - 544px)" height='200px' onOpen={isModalOpen} onClose={() => setIsModalOpen(false)} className="chatInput-modal">
                 <PrevImage  height="150px" src={file}/>
             </Modal>
             <div className="input-wrapper">
