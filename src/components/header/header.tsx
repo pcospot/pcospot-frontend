@@ -1,6 +1,6 @@
 import react from 'react';
-import hambergur from "../assets/hambergur.png"
-import "../design/header.css"
+import hambergur from "../../assets/hambergur.png"
+import "./header.css"
 export default function Header() {
     return (
         <header>

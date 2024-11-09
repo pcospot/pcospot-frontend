@@ -1,26 +1,37 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import Header from './components/header.tsx'
-import './App.css'
-import MainPage from "./pages/mainPage.tsx";
-import {BrowserRouter, Routes, Route} from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Header from "./components/header/header.tsx";
+import "./App.css";
+
+import CalenderPage from "./pages/calenderPage.tsx";
+import CheckPage from "./pages/checkPage.tsx";
+import ChatPage from "./pages/ChatPage.tsx";
 import DailyScrumPage from "./pages/dailyScrumPage.tsx";
-
+import FeedbackPage from "./pages/feedbackPage.tsx";
+import Generalpage from "./pages/generalpage.tsx";
+import MainPage from "./pages/mainPage.tsx";
+import NoticePage from "./pages/noticePage.tsx";
+import ProjectPage from "./pages/projectPage.tsx";
+import SchedulePage from "./pages/schedulePage.tsx";
+import NotFoundPage from "./pages/nofFoundPage.tsx";
 function App() {
-
-  return (
-    <>
-        <Header />
+    return (
         <BrowserRouter>
+            <Header />
             <Routes>
-                <Route path="/" element={<MainPage/>}/>
-                <Route path="/scrum" element={<DailyScrumPage/>}/>
+                <Route path="/" element={<MainPage />} />
+                <Route path="/calender" element={<CalenderPage />} />
+                <Route path="/general" element={<Generalpage />} />
+                <Route path="/scrum" element={<DailyScrumPage />} />
+                <Route path="/check" element={<CheckPage />} />
+                <Route path="/chat" element={<ChatPage />} />
+                <Route path="/feedback" element={<FeedbackPage />} />
+                <Route path="/notice" element={<NoticePage />} />
+                <Route path="/project" element={<ProjectPage />} />
+                <Route path="/schedule" element={<SchedulePage />} />
+                <Route path="*" element={<NotFoundPage />} />
             </Routes>
         </BrowserRouter>
-
-    </>
-  )
+    );
 }
 
-export default App
+export default App;

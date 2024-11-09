@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'; // react의 R은 대문자로 작성
-import "../../design/projectBox.css";
+import "./projectBox.css";
 
 type ProjectBoxProps = {
     progress: string;

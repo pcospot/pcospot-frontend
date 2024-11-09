@@ -6,14 +6,16 @@ import AddMiddleLine from "./chatFunction/addMiddleLine";
 import AddItalicFont from "./chatFunction/addItalicFont.tsx";
 import Modal from "../modal/modal.tsx";
 import PrevImage from "./chatFunction/prevImage.tsx";
-import { useFileStore } from "./chatFunction/Stores/useFileStore";
-import { useMessageStore } from "./chatFunction/Stores/useMessageStore";
+import EmogiAdd from "./chatFunction/emogiAdd.tsx";
+import { useFileStore } from "../Stores/useFileStore";
+import { useMessageStore } from "../Stores/useMessageStore";
 import sendImage from "../../assets/sendImage.svg";
 
 export default function ChatInput() {
     const file = useFileStore((state) => state.file);
     const setMessage = useMessageStore((state) => state.setMessage);
     const message = useMessageStore((state) => state.message);
+
 
     const [clickedStates, setClickedStates] = useState([false, false, false, false]);
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -39,8 +41,8 @@ export default function ChatInput() {
 
     return (
         <div className="chatInput-container">
-            <Modal width="calc(95vw - 544px)" height={100} onOpen={isModalOpen} onClose={() => setIsModalOpen(false)} className="chatInput-modal">
-                <PrevImage width="100px" height="30px" src={file}/>
+            <Modal width="calc(95vw - 544px)" height={200} onOpen={isModalOpen} onClose={() => setIsModalOpen(false)} className="chatInput-modal">
+                <PrevImage  height="150px" src={file}/>
             </Modal>
             <div className="input-wrapper">
                 <input
@@ -68,7 +70,9 @@ export default function ChatInput() {
                         clicked={clickedStates[2]}
                         onClick={() => toggleClickedState(2)}
                     />
+                    <EmogiAdd/>
                     {console.log(file)}
+
                 </div>
                 <button onClick={() => console.log(message)}>
                     <img src={sendImage} alt="Send" />

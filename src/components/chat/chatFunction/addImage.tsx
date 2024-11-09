@@ -1,6 +1,6 @@
 import React from 'react';
 import "./addImage.css";
-import { useFileStore } from './Stores/useFileStore.tsx';
+import { useFileStore } from '../../Stores/useFileStore.tsx';
 import addButton from "../../../assets/addButton.svg"
 
 export default function AddImage() {

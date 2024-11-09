@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 .projectBox-container {
     width: 218px;
     height: 100px;
@@ -10,6 +11,7 @@
     align-items: start;
 }
 .projectBox-container > h1{
+    font-family: 'Montserrat', sans-serif;
     font-size: 20px;
     font-weight: bold;
 }

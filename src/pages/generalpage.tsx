@@ -1,4 +1,3 @@
-import Header from '../components/header/header.tsx'
 import LeftSidebar from "../components/leftsidebar/leftsidebar.tsx";
 import RightSideServerBar from "../components/rightsidebar/rightSideServerBar/rightSideServerBar.tsx"
 import '../design/pages/mainPage.css'
@@ -15,11 +14,9 @@ type UserType = {
     img : string
 }
 
-
-
 export type {UserType}
 
-function MainPage() {
+function GeneralPage() {
 
     return (
         <>
@@ -39,4 +36,4 @@ function MainPage() {
     )
 }
 
-export default MainPage
+export default GeneralPage;
