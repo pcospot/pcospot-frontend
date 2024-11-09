@@ -1,0 +1,36 @@
+.calendarBox-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 218px;
+    height: 100px;
+    background: #171717;
+    border-radius:12px;
+    padding: 15px;
+}
+.calendarBox-month{
+    width: 186px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.calendarBox-month>p{
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+}
+.calendarBox-year{
+    align-self: flex-start;
+    font-size: 12px;
+    font-weight : lighter;
+    color: #919191;
+    margin-bottom: 14px;
+}
+.calendarBox-schedule{
+    align-self: flex-start;
+    font-weight : lighter;
+    font-size: 12px;
+    color: #00E984;
+
+}
