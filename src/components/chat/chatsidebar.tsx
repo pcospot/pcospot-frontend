@@ -1,9 +1,9 @@
 import { Link, useLocation } from "react-router-dom";
-import "../../design/leftsidebar.css";
-import ProjectBox from "../project/projectBox";
+import "./chatsidebar.css";
+import ProjectBox from "../project/projectBox.tsx";
 import Menu from "../leftsidebar/menu.tsx";
 
-export default function LeftSidebar() {
+export default function ChatSidebar() {
     const company = {
         name: 'Binford Ltd.',
         days: '27',

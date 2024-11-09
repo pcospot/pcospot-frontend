@@ -1,4 +1,4 @@
-import LeftSidebar from "../components/leftsidebar/leftsidebar.tsx";
+import ChatSidebar from "../components/chat/chatsidebar.tsx";
 import RightSideServerBar from "../components/rightsidebar/rightSideServerBar/rightSideServerBar.tsx"
 import '../design/pages/mainPage.css'
 import RightSidePeopleBar from "../components/rightsidebar/rightSidePeopleBar/rightSidePeopleBar.tsx";
@@ -21,7 +21,7 @@ function GeneralPage() {
     return (
         <>
             <div className="mainPage">
-                <LeftSidebar />
+                <ChatSidebar />
                 <div className="chat">
                     <ChatList>
                         <ChatInput/>

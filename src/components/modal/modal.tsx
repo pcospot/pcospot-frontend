@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 
 type ModalProps = {
     width?: string;
-    height?: number;
+    height?: string;
     onClose?: () => void;
     onOpen?: boolean;
     children?: React.ReactNode;
@@ -14,7 +14,7 @@ import "./modal.css";
 export default function Modal({ width, height, onOpen, onClose, children, className }: ModalProps) {
     const modalStyle = {
         width: `${width}`,
-        height: `${height}px`,
+        height: `${height}`,
     };
 
     useEffect(() => {
