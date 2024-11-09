@@ -11,7 +11,7 @@ import scheduleChoose from "../../assets/scheduleChoose.svg";
 import scrum from "../../assets/scrum.svg";
 import scrumNotAlarm from "../../assets/scrumNotChoose.svg";
 import scrumChoose from "../../assets/scrumChoose.svg";
-import "../chat/leftsidebar.css";
+import "./chatsidebar.css";
 
 type menuProps = {
     channel: string;

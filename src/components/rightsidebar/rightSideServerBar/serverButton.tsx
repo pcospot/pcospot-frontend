@@ -27,8 +27,8 @@ export default function ServerButton({ choose, background, alarm, arcaived, onCl
     return (
         <button style={buttonStyle} onClick={onClick}>
             {!arcaived && alarm !== undefined && (
-                <div className={alarmLengthClass()}>
-                    <p>{alarm >= 100 ? '99+' : alarm}</p>
+                <div className={alarmLengthClass()} style={{zIndex:"10000"}}>
+                    <p >{alarm >= 100 ? '99+' : alarm}</p>
                 </div>
             )}
             {arcaived && (

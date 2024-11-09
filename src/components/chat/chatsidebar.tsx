@@ -1,7 +1,7 @@
 import { Link, useLocation } from "react-router-dom";
 import "./chatsidebar.css";
 import ProjectBox from "../project/projectBox.tsx";
-import Menu from "../leftsidebar/menu.tsx";
+import Menu from "./menu.tsx";
 
 export default function ChatSidebar() {
     const company = {
