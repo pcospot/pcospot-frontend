@@ -1,7 +1,13 @@
 import "../../../design/rightSidePeopleBar.css";
 import ProjectBox from "../../project/projectBox.tsx";
 import profileImage from "../../../assets/profile image.svg";
+import peopleLoad from "../../people/peopleLoad.tsx"
 import PeopleBox from "./peopleBox.tsx";
+import {UserType} from "../../../pages/mainPage.tsx"
+
+type RightSidePeopleBarProps = {
+    user : UserType;
+}
 
 export default function RightSidePeopleBar() {
     const company = {
@@ -37,6 +43,8 @@ export default function RightSidePeopleBar() {
         }
     ];
 
+
+
     // Job에 따라 PeopleBox를 반환하는 함수
     const divideJob = (item) => {
         return <PeopleBox key={item.name} name={item.name} online={item.online} img={item.img} job={item.job} />;
@@ -44,7 +52,6 @@ export default function RightSidePeopleBar() {
 
     return (
         <div className="right-side-people-bar">
-            <ProjectBox progress={company.progress} name={company.name} days={company.days} />
             <div className="right-side-people-bar-job-dev">
                 <div className="job-developer">
                     <div></div>

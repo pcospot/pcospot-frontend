@@ -1,5 +1,5 @@
 .chatList-container {
-    height: 110%;
+    height: 95%;
     color: white;
     width: calc(97vw - 544px);
     display: flex;
@@ -9,6 +9,11 @@
     padding-top: 22px;
     gap: 1rem;
     box-sizing: border-box;
+    -ms-overflow-style: none; /* 인터넷 익스플로러 */
+    scrollbar-width: none; /* 파이어폭스 */
+}
+.chatList-container::-webkit-scrollbar {
+    display: none;
 }
 .chatList-container-box{
     min-height: 100px;

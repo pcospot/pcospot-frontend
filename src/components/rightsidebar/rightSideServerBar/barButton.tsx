@@ -1,48 +1,28 @@
-type barButtonProps = {
+import React from "react";
+
+type BarButtonProps = {
     src: string;
-    choose: boolean;
+    choose?: boolean;
     background: boolean;
-    alarm?: number;
-    arcaived?: boolean;
+    onClick?: () => void;
+    children?: React.ReactNode; // children을 prop으로 받기 위한 타입 정의
 };
 
-import arcived from "../../../assets/FloppyDiskBack.svg";
 import "../rightSideServerBar/barButton.css";
 
-export default function BarButton({ src, choose, background, alarm, arcaived }: barButtonProps) {
-    const alarmLengthClass = () => {
-        if (alarm === undefined) return '';
-        if (alarm < 10) return 'alarmOne';
-        if (alarm < 100) return 'alarmTen';
-        return 'alarmHun';
-    };
-
+export default function BarButton({ src, choose, background, onClick, children  }: BarButtonProps) {
     const buttonStyle = {
         width: '36px',
         height: '36px',
-        border: choose ? '2px solid #00E984' : '1px solid #282828',
+        outline: choose ? '2px solid #00E984' : '1px solid #282828',
+        backgroundColor: choose ? 'rgba(0,233,132,0.15)' : '#282828',
         ...(background && { backgroundImage: `url(${src})`, display: 'flex', alignItems: 'flex-end', justifyContent: 'flex-end' })
     };
 
-    if (!arcaived) {
-        return (
-            <button style={buttonStyle}>
-                {background && alarm !== undefined && (
-                    <div className={alarmLengthClass()}>
-                        <p>{alarm >= 100 ? '99+' : alarm}</p>
-                    </div>
-                )}
-                {!background && <img src={src} alt={src} />}
-            </button>
-        );
-    } else {
-        return (
-            <button style={buttonStyle} className="arcaived-background">
-                <div className='arcaived-disk'>
-                    <img src={arcived} alt='arcived' />
-                </div>
-                <div className="overlay"></div>
-            </button>
-        );
-    }
+    return (
+        <button style={buttonStyle} onClick={onClick}>
+            {!background && <img src={src} alt={src} />}
+            {children}
+        </button>
+    );
 }
