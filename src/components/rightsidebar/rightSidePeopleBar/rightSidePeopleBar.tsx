@@ -2,7 +2,7 @@ import "../../../design/rightSidePeopleBar.css";
 import ProjectBox from "../../project/projectBox.tsx";
 import profileImage from "../../../assets/profile image.svg";
 import peopleLoad from "../../people/peopleLoad.tsx"
-import PeopleBox from "./peopleBox.tsx";
+import PeopleBox from "../../people/peopleBox.tsx";
 import {UserType} from "../../../pages/mainPage.tsx"
 
 type RightSidePeopleBarProps = {

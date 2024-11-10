@@ -5,7 +5,14 @@
     display: flex;
     align-items: center;
     flex-direction: column;
+    justify-content: space-between;
     padding:0.7vw;
+    gap: 16px;
+}
+.left-sidebar-content{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
     gap: 16px;
 }
 .left-sidebar-google-meet{
@@ -44,4 +51,11 @@
 .left-sidebar-menu-item>h1{
     font-size: 12px;
     font-weight: normal;
+}
+.chat-sidebar-profile{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom:25px;
 }
