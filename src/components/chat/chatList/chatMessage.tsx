@@ -1,17 +1,26 @@
-
-import "./chatMessage.css"
+import "./chatMessage.css";
+import EmogiAdd from "../chatFunction/emogiAdd.tsx";
+import useEmojiStore from "../../Stores/useEmojiStore.tsx";
+import { useEffect } from "react";
 
 type ChatMessageProps = {
-    profileImage : string,
-    name : string,
-    message : string,
-    imageUrl ?: string,
-    timestamp : string,
-    job : string,
-    emotion ?: any
-}
+    id: string;
+    profileImage: string;
+    name: string;
+    message: string;
+    imageUrl?: string;
+    timestamp: string;
+    job: string;
+    emotion?: any;
+};
 
-export default function ChatMessage({ profileImage, name, message, timestamp, imageUrl, job, emotion }: ChatMessageProps) {
+export default function ChatMessage({ id, profileImage, name, message, timestamp, imageUrl, job, emotion }: ChatMessageProps) {
+    const EmojiAdded = useEmojiStore(state => state.emojis);
+
+    useEffect(() => {
+        console.log(`Updated emojis for message ${id}: ${JSON.stringify(EmojiAdded[id] || [])}`);
+    }, [EmojiAdded, id]);
+
     return (
         <div className="chatMessage-container">
             <img src={profileImage} alt="image not found" />
@@ -28,16 +37,18 @@ export default function ChatMessage({ profileImage, name, message, timestamp, im
                 </div>
                 <p>{message}</p>
                 <img src={imageUrl} alt="image not found" />
-
                 {emotion && (
                     <div className="chatMessage-emotion">
                         {Object.entries(emotion).map(([key, value]) => (
                             <p key={key}>
-                                <strong>{key.charAt(0).toUpperCase() + key.slice(1)}:</strong> {value}
+                                {value}
                             </p>
                         ))}
                     </div>
                 )}
+                <div className="chatMessage-emojis">
+                </div>
+                <EmogiAdd id={id}></EmogiAdd>
             </div>
         </div>
     );

@@ -70,7 +70,6 @@ export default function ChatInput() {
                         clicked={clickedStates[2]}
                         onClick={() => toggleClickedState(2)}
                     />
-                    <EmogiAdd/>
                     {console.log(file)}
 
                 </div>

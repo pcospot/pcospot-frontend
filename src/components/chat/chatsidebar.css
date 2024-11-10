@@ -17,17 +17,38 @@
 }
 .left-sidebar-google-meet{
     width: 218px;
-    height : 33px;
+    height : 80px;
     background: #171717;
     border-radius: 12px;
     display: flex;
-    align-items: center;
-    text-align: center;
+    justify-content: space-between;
+    align-items: flex-end;
     color: white;
+    padding :12px;
 }
-.left-sidebar-google-meet> p{
+.left-sidebar-google-meet-time{
+    display: flex;
     font-size: 12px;
-    font-weight: 300;
+    flex-direction: column;
+    align-self: flex-start;
+    gap: 6px;
+}
+.left-sidebar-google-meet-time > h6{
+    font-size: 12px;
+    font-weight: 600;
+}
+.left-sidebar-google-meet-time> p{
+    font-size: 12px;
+    font-weight: 100;
+    color: #919191;
+}
+.left-sidebar-google-meet> button{
+    width: 41px;
+    height: 25px;
+    border-radius: 8px;
+    background: #111111;
+    color: white;
+    font-weight: bold;
 }
 .left-sidebar-menu{
     width: 100%;

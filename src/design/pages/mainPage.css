@@ -5,6 +5,9 @@
 }
 .chat{
     height: calc(90vh - 60px);
-    width: calc(97vw - 544px);
-
+    min-width: calc(97vw - 544px);
+    width: calc(100vw - 302px);
+    display: grid;
+    align-items: center;
+    justify-content: center;
 }

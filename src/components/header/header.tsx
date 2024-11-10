@@ -1,5 +1,6 @@
 import react from 'react';
-import hambergur from "../../assets/hambergur.png"
+import Logo from "../../assets/PCOSPOT-LOGO.svg"
+import hambergur from "../../assets/List.svg"
 import "./header.css"
 export default function Header() {
     return (
@@ -7,7 +8,7 @@ export default function Header() {
             <button>
                 <img src={hambergur} alt="hambergur"/>
             </button>
-            <h1>pcospot</h1>
+            <img src={Logo} alt="Logo"/>
         </header>
     )
 }

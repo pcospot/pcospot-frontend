@@ -1,7 +1,6 @@
 .chatList-container {
     height: 95%;
     color: white;
-    width: calc(97vw - 544px);
     display: flex;
     align-items: center;
     flex-direction: column;
