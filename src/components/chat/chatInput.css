@@ -1,6 +1,6 @@
 .chatInput-container {
     width: calc(95vw - 544px);
-    height: 74px;
+    height: 90px;
     background: #171717;
     border-radius: 12px;
     z-index: 1;
