@@ -1,11 +1,13 @@
 #calendar-container {
-    width: calc(100vw - 242px - 60px);
+    min-width: calc(100vw - 242px - 60px);
+    width: calc(100vw - 60px);
     height: calc(100vh - 60px);
     background: #0A0A0A;
-    padding: 0;
+    padding: 1rem;
     margin: 0;
     align-items: center;
     display: grid;
+    box-sizing: border-box;
 }
 :root {
     --fc-border-color: none;
@@ -94,10 +96,23 @@ tr{
 
 /* Tody Cell에 배경색 주기 */
 .fc .fc-daygrid-day.fc-day-today {
-    box-shadow: 0 0 0 1px #00E984 inset;
     border-radius: 12px;
     background: none;
+    color: #000000;
+    a{
+        width: 30px;
+        height: 30px;
+        border-radius: 50px;
+        background: #00E984;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 }
+.fc .fc-daygrid-day-number{
+    font-weight:600;
+}
+
 
 /* 월간,주간 view의 Cell이 시작하는 위치 */
 .fc .fc-daygrid-day-top {

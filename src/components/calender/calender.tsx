@@ -6,13 +6,13 @@ import Modal from "../modal/modal.tsx";
 import { useState, useEffect, useRef } from "react";
 import useCalendarStore from "../Stores/useCalendarStore.tsx";
 
-type calenderProps = {
-    events: any;
+type CalendarProps = {
+    events: { title: string; date: string }[];
 };
 
-export default function Calender({ events }: calenderProps) {
+export default function Calendar({ events }: CalendarProps) {
     const [isModalOpen, setIsModalOpen] = useState(false);
-    const [selectedDate, setSelectedDate] = useState(null);
+    const [selectedDate, setSelectedDate] = useState<string | null>(null);
     const calendarRef = useRef(null);
 
     const setCalendarRef = useCalendarStore(state => state.setCalendarRef);
@@ -22,9 +22,9 @@ export default function Calender({ events }: calenderProps) {
         if (calendarRef.current) {
             setCalendarRef(calendarRef.current);
         }
-    }, [calendarRef.current]);
+    }, [calendarRef, setCalendarRef]);
 
-    const dayFunction = (info) => {
+    const dayFunction = (info: { dateStr: string }) => {
         setSelectedDate(info.dateStr);
         setIsModalOpen(true);
     };
@@ -34,28 +34,32 @@ export default function Calender({ events }: calenderProps) {
     };
 
     const eventsBorderFunction = () => {
-        const events = document.getElementsByClassName('fc-event');
+        const eventsElements = document.getElementsByClassName('fc-event');
         const eventTitles = document.getElementsByClassName('fc-event-title');
 
-        for (let i = 0; i < events.length; i++) {
+        for (let i = 0; i < eventsElements.length; i++) {
             const eventTitle = eventTitles[i]?.innerHTML;
 
             switch (eventTitle) {
                 case 'Binford Ltd.':
-                    events[i].style.borderLeft = '3px solid #2982FF';
+                    eventsElements[i].style.borderLeft = '3px solid #2982FF';
                     break;
                 case 'Astro':
-                    events[i].style.borderLeft = '3px solid #FFC229';
+                    eventsElements[i].style.borderLeft = '3px solid #FFC229';
                     break;
                 default:
-                    events[i].style.borderLeft = '3px solid #919191';
+                    eventsElements[i].style.borderLeft = '3px solid #919191';
             }
         }
     };
 
+    const getModalEvents = (date: string) => {
+        return events.filter(event => event.date === date);
+    };
+
     useEffect(() => {
         eventsBorderFunction();
-    }, [calendarEventStore]);
+    }, [calendarEventStore, events]);
 
     return (
         <div id="calendar-container">
@@ -67,18 +71,23 @@ export default function Calender({ events }: calenderProps) {
                     start: "prev next",
                     end: 'today',
                 }}
-                height="calc(100vh - 60px)"
+                height="calc(100vh - 60px - 2rem)"
                 dayHeaderClassNames="calendar-header"
                 events={events}
                 dateClick={dayFunction}
                 selectable={false}
                 eventsSet={eventsBorderFunction}
-                dayMaxEventRows={true} // 셀의 높이를 고정하고 일정이 많을 때 +N more 표시
-                moreLinkText={(num) => `+${num} more`} // "more" 링크 텍스트 커스터마이징
+                dayMaxEventRows={true}
+                moreLinkText={(num) => `+${num} more`}
             />
             {isModalOpen && (
                 <Modal width="300px" height="300px" onOpen={true} onClose={closeModal} className="calender-modal">
                     <p>선택된 날짜: {selectedDate}</p>
+                    <div>
+                        {getModalEvents(selectedDate || "").map((event, index) => (
+                            <p key={index}>{event.title} {event.message}</p>
+                        ))}
+                    </div>
                 </Modal>
             )}
         </div>

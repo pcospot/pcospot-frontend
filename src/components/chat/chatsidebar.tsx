@@ -32,9 +32,13 @@ export default function ChatSidebar() {
             <div className="left-sidebar-content">
                 <ProjectBox name={company.name} days={company.days} progress={company.progress}/>
 
-                <button className="left-sidebar-google-meet">
-                    <p>Open Google Meet</p>
-                </button>
+                <div className="left-sidebar-google-meet">
+                    <div className="left-sidebar-google-meet-time">
+                        <h6>Open Google Meet</h6>
+                        <p>Meet ongoing for X hrs</p>
+                    </div>
+                    <button>Join</button>
+                </div>
 
                 <div className="left-sidebar-menu">
                     <Link to="/notice" style={{textDecoration: "none"}}>

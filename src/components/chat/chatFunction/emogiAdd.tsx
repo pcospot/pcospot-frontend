@@ -1,44 +1,39 @@
 import { useState } from 'react';
 import emojis from 'emoji.json';
+import useEmojiStore from "../../Stores/useEmojiStore.tsx";
 
 type EmojiType = {
-    char: string;
-    name: string;
+    id: string;
 };
 
-export default function EmogiAdd() {
-    // 이모지 데이터를 배열로 사용
-    const [emojiList, setEmojiList] = useState<string[][]>(Array(4).fill([]));
+import "./emogiAdd.css";
+import Modal from "../../modal/modal.tsx";
 
-    // 이모지를 4등분하여 배열에 추가하는 함수
+export default function EmogiAdd({ id }: EmojiType) {
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const closeModal = () => setIsModalOpen(false);
+    const [emojiList, setEmojiList] = useState<{ id: string; char: string }[]>([]);
+    const addEmojiToStore = useEmojiStore(state => state.addEmoji);
+
     const emojiPrint = () => {
-        const tempList: string[][] = Array.from({ length: 4 }, () => []);
-        const chunkSize = Math.floor(emojis.length / 4);
-
-        for (let i = 0; i < 4; i++) {
-            for (let j = 0; j < chunkSize; j++) {
-                const emojiIndex = i * chunkSize + j;
-                const emoji = (emojis as EmojiType[])[emojiIndex]?.char;
-                if (emoji) {
-                    tempList[i].push(emoji);
-                }
-            }
-        }
-        setEmojiList(tempList);
+        setEmojiList(emojis);
+        setIsModalOpen(true);
     };
 
     return (
         <div className="emogiAdd-container">
-            <button onClick={emojiPrint}>이모지 추가</button>
-            <div>
-                {emojiList.map((group, index) => (
-                    <div key={index}>
-                        {group.map((emoji, idx) => (
-                            <span key={idx}>{emoji} </span>
+            <button onClick={emojiPrint} style={{ color: 'white' }}> + </button>
+            {isModalOpen && (
+                <Modal width="40vw" height="200px" onOpen={isModalOpen} onClose={closeModal} className="emogiAdd-modal">
+                    <div className="emojiAdd-content">
+                        {emojiList.map((emoji) => (
+                            <p key={emoji.id} onClick={() => addEmojiToStore(id, emoji.char)}>
+                                {emoji.char}
+                            </p>
                         ))}
                     </div>
-                ))}
-            </div>
+                </Modal>
+            )}
         </div>
     );
 }

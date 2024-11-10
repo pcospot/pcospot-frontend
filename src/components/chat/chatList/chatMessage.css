@@ -8,6 +8,7 @@
     display: flex;
     flex-direction: column;
     gap: 4px;
+    width: 45%;
 }
 .chatMessage-contents-job{
     width : 12px;
@@ -21,4 +22,7 @@
     color: #919191;
     margin-left: 8px;
     align-self: flex-end;
+}
+.chatMessage-emotion{
+    display: flex;
 }
