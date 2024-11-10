@@ -1,22 +1,14 @@
+// useCalendarStore.tsx
 import { create } from 'zustand';
 
 const useCalendarStore = create((set) => ({
-    calendarRef: null, // 초기값 null로 설정
-    setCalendarRef: (ref) => set({ calendarRef: ref }), // FullCalendar의 ref를 상태에 저장
-    goToPrev: () => {
-        set((state) => {
-            if (state.calendarRef) {
-                state.calendarRef.current.getApi().prev(); // FullCalendar API로 이전으로 이동
-            }
-        });
-    },
-    goToNext: () => {
-        set((state) => {
-            if (state.calendarRef) {
-                state.calendarRef.current.getApi().next(); // FullCalendar API로 다음으로 이동
-            }
-        });
-    },
+    calendarRef: null,
+    setCalendarRef: (ref) => set({ calendarRef: ref }),
+    calendarEvent: [
+        { title: 'Binford Ltd.', message: "sprint", date: '2024-11-01' },
+        { title: 'Astro', message: 'daily scrum 1', date: '2024-11-07' },
+    ],
+    setCalendarEvent: (newEvents) => set((state) => ({ calendarEvent: newEvents })),
 }));
 
 export default useCalendarStore;

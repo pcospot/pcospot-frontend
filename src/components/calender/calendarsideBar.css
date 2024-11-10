@@ -14,3 +14,11 @@
     background: #171717;
     color: white;
 }
+.calendarsideBar-modal{
+    background: #00E984;
+    position: absolute;
+    z-index: 10000;
+    top: 50vh;
+    left: 50vw;
+    transform: translate(-50%, -50%);
+}

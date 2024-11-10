@@ -7,7 +7,7 @@ import { useState, useEffect, useRef } from "react";
 import useCalendarStore from "../Stores/useCalendarStore.tsx";
 
 type calenderProps = {
-    events: any
+    events: any;
 };
 
 export default function Calender({ events }: calenderProps) {
@@ -15,30 +15,52 @@ export default function Calender({ events }: calenderProps) {
     const [selectedDate, setSelectedDate] = useState(null);
     const calendarRef = useRef(null);
 
-    const setCalendarRef = useCalendarStore(state => state.setCalendarRef);// zustand 상태 설정 함수
+    const setCalendarRef = useCalendarStore(state => state.setCalendarRef);
+    const calendarEventStore = useCalendarStore(state => state.calendarEvent);
 
     useEffect(() => {
-        // DOM이 완전히 렌더링된 후에만 calendarRef 상태를 zustand에 설정
         if (calendarRef.current) {
             setCalendarRef(calendarRef.current);
         }
     }, [calendarRef.current]);
 
-    console.log(calendarRef)// useEffect는 calendarRef.current의 변경 사항을 관찰합니다.
-
     const dayFunction = (info) => {
-        setSelectedDate(info.dateStr); // 클릭한 날짜를 저장
-        setIsModalOpen(true); // 모달 열기
+        setSelectedDate(info.dateStr);
+        setIsModalOpen(true);
     };
 
     const closeModal = () => {
-        setIsModalOpen(false); // 모달 닫기
+        setIsModalOpen(false);
     };
+
+    const eventsBorderFunction = () => {
+        const events = document.getElementsByClassName('fc-event');
+        const eventTitles = document.getElementsByClassName('fc-event-title');
+
+        for (let i = 0; i < events.length; i++) {
+            const eventTitle = eventTitles[i]?.innerHTML;
+
+            switch (eventTitle) {
+                case 'Binford Ltd.':
+                    events[i].style.borderLeft = '3px solid #2982FF';
+                    break;
+                case 'Astro':
+                    events[i].style.borderLeft = '3px solid #FFC229';
+                    break;
+                default:
+                    events[i].style.borderLeft = '3px solid #919191';
+            }
+        }
+    };
+
+    useEffect(() => {
+        eventsBorderFunction();
+    }, [calendarEventStore]);
 
     return (
         <div id="calendar-container">
             <FullCalendar
-                ref={calendarRef} // FullCalendar 컴포넌트에 ref를 전달
+                ref={calendarRef}
                 plugins={[dayGridPlugin, interactionPlugin]}
                 initialView="dayGridMonth"
                 headerToolbar={{
@@ -50,6 +72,9 @@ export default function Calender({ events }: calenderProps) {
                 events={events}
                 dateClick={dayFunction}
                 selectable={false}
+                eventsSet={eventsBorderFunction}
+                dayMaxEventRows={true} // 셀의 높이를 고정하고 일정이 많을 때 +N more 표시
+                moreLinkText={(num) => `+${num} more`} // "more" 링크 텍스트 커스터마이징
             />
             {isModalOpen && (
                 <Modal width="300px" height="300px" onOpen={true} onClose={closeModal} className="calender-modal">
