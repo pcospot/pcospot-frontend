@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import "../../../design/rightSideServerBar.css";
 import house from "../../../assets/House.svg";
-import ChatsTeardrop from "../../../assets/ChatsTeardrop.svg";
+import GlobalCircle from "../../../assets/GlobeSimple.svg";
 import CheckCircle from "../../../assets/CheckCircle.svg";
 import CalendarDots from "../../../assets/CalendarDots.svg";
 import Plus from "../../../assets/Plus.svg";
@@ -26,7 +26,7 @@ export default function RightSideServerBar() {
         switch (location.pathname) {
             case "/":
                 return "house";
-            case "/chat":
+            case "/global":
                 return "chats";
             case "/check":
                 return "check";
@@ -50,9 +50,9 @@ export default function RightSideServerBar() {
                     choose={selectedBar === "house"}
                 />
             </Link>
-            <Link to="/chat">
+            <Link to="/global">
                 <BarButton
-                    src={ChatsTeardrop}
+                    src={GlobalCircle}
                     background={false}
                     choose={selectedBar === "chats"}
                 />

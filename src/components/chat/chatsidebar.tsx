@@ -32,8 +32,8 @@ export default function ChatSidebar() {
             <div className="left-sidebar-content">
                 <ProjectBox name={company.name} days={company.days} progress={company.progress}/>
 
-                <div className="left-sidebar-google-meet">
-                    <div className="left-sidebar-google-meet-time">
+                <div className="google-meet">
+                    <div className="google-meet-time">
                         <h6>Open Google Meet</h6>
                         <p>Meet ongoing for X hrs</p>
                     </div>
@@ -73,7 +73,7 @@ export default function ChatSidebar() {
                             choose={getSelectedMenu("/feedback")}
                         />
                     </Link>
-                    <Link to="/schedule" style={{textDecoration: "none"}}>
+                    <Link to="/calender" style={{textDecoration: "none"}}>
                         <Menu
                             channel="schedule"
                             name="Schedule"

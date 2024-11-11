@@ -44,8 +44,6 @@ export default function RightSidePeopleBar() {
     ];
 
 
-
-    // Job에 따라 PeopleBox를 반환하는 함수
     const divideJob = (item) => {
         return <PeopleBox key={item.name} name={item.name} online={item.online} img={item.img} job={item.job} />;
     };

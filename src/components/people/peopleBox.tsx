@@ -2,7 +2,7 @@ type props = {
     name: string;
     online: boolean;
     job?: string;
-    img: string;
+    img?: string;
 };
 
 import "./peopleBox.css"; // 경로 수정 ("/"에서 "./"로 변경)

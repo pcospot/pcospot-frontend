@@ -4,7 +4,7 @@ import "./App.css";
 
 import CalenderPage from "./pages/calenderPage.tsx";
 import CheckPage from "./pages/checkPage.tsx";
-import ChatPage from "./pages/ChatPage.tsx";
+import GlobalPage from "./pages/GlobalPage.tsx";
 import DailyScrumPage from "./pages/dailyScrumPage.tsx";
 import FeedbackPage from "./pages/feedbackPage.tsx";
 import Generalpage from "./pages/generalpage.tsx";
@@ -23,7 +23,7 @@ function App() {
                 <Route path="/general" element={<Generalpage />} />
                 <Route path="/scrum" element={<DailyScrumPage />} />
                 <Route path="/check" element={<CheckPage />} />
-                <Route path="/chat" element={<ChatPage />} />
+                <Route path="/global" element={<GlobalPage />} />
                 <Route path="/feedback" element={<FeedbackPage />} />
                 <Route path="/notice" element={<NoticePage />} />
                 <Route path="/project" element={<ProjectPage />} />

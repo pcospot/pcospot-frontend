@@ -15,7 +15,7 @@
     flex-direction: column;
     gap: 16px;
 }
-.left-sidebar-google-meet{
+.google-meet{
     width: 218px;
     height : 80px;
     background: #171717;
@@ -26,23 +26,23 @@
     color: white;
     padding :12px;
 }
-.left-sidebar-google-meet-time{
+.google-meet-time{
     display: flex;
     font-size: 12px;
     flex-direction: column;
     align-self: flex-start;
     gap: 6px;
 }
-.left-sidebar-google-meet-time > h6{
+.google-meet-time > h6{
     font-size: 12px;
     font-weight: 600;
 }
-.left-sidebar-google-meet-time> p{
+.google-meet-time> p{
     font-size: 12px;
     font-weight: 100;
     color: #919191;
 }
-.left-sidebar-google-meet> button{
+.google-meet> button{
     width: 41px;
     height: 25px;
     border-radius: 8px;
