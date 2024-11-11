@@ -7,6 +7,7 @@
     align-items: center;
     padding:0.7vw;
     gap: 16px;
+    box-sizing: border-box;
 }
 .calendarsideBar-button{
     width: 218px;

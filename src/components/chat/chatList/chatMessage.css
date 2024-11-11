@@ -25,4 +25,15 @@
 }
 .chatMessage-emotion{
     display: flex;
+    gap: 8px;
+    align-items: center;
+}
+.chatMessage-emotion-item{
+    width: 50px;
+    height: 25px;
+    border-radius: 100px;
+    background: #171717;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

@@ -1,0 +1,78 @@
+.recruitmentList-container{
+    width: calc(100vw - 60px - 242px);
+    height: calc(100vh - 60px);
+    background: #0A0A0A;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    box-sizing: border-box;
+    padding: 1rem;
+    gap: 24px;
+}
+.recruitmentList-search{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+.recruitmentList-search>button{
+    color: #00E984;
+    font-size: 16px;
+    font-weight: normal;
+    width: 154px;
+    height: 38px;
+    background: #171717;
+}
+.recruitmentList-search>input{
+    width: calc(98% - 168px);
+    height: 38px;
+    border-radius: 12px;
+    border: none;
+    padding-left: 16px;
+    background: #171717;
+    color: white;
+}
+.recruitmentList-search>input::placeholder{
+    color: #919191;
+    font-size: 16px;
+    font-weight: lighter;
+}
+.recruitmentList-search>input:focus{
+    outline: none;
+}
+.recruitmentList-recently-posts{
+    width: 98%;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.recruitmentList-recently-postlist{
+    height: 210px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 13px;
+    overflow: scroll;
+    -ms-overflow-style: none; /* 인터넷 익스플로러 */
+    scrollbar-width: none; /* 파이어폭스 */
+    flex-wrap: wrap;
+}
+.recruitmentList-top-posts{
+    width: 98%;
+}
+.recruitmentList-top-postlist{
+    height: 420px;
+    width: 100%;
+    padding : 10px ;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 13px;
+    overflow: scroll;
+    -ms-overflow-style: none; /* 인터넷 익스플로러 */
+    scrollbar-width: none; /* 파이어폭스 */
+    flex-wrap: wrap;
+    box-sizing: border-box;
+}

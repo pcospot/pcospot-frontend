@@ -7,6 +7,7 @@
     margin: 0;
     align-items: center;
     display: grid;
+    justify-items: center;
     box-sizing: border-box;
 }
 :root {
@@ -47,6 +48,9 @@ tr{
     background-color: transparent;
     border: none;
     font-size: 14px;
+}
+.fc {
+    width: 97%;
 }
 
 /* 툴바 사용 불가 버튼 스타일 */

@@ -1,0 +1,48 @@
+.recruitmentBox-container {
+    width: 387px;
+    height: 200px;
+    background-color: #171717;
+    border-radius: 12px;
+    padding: 16px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    transition-property: all;
+    transition-duration: 0.2s;
+}
+.recruitmentBox-container:hover{
+    outline: 2px solid #00E984;
+    cursor: pointer;
+}
+.recruitmentBox-container>h2{
+    font-size: 20px;
+    font-weight: bolder;
+    color : white;
+    margin-bottom: 4px;
+}
+.recruitmentBox-container> p{
+    font-size: 14px;
+    font-weight: normal;
+    color: #919191;
+}
+.notificationBox-tagList{
+    width: 100%;
+    display: flex;
+    gap: 8px;
+}
+.notificationBox-imageList{
+    display: flex;
+    gap: 12px;
+}
+.tag {
+    height: 25px;
+    background: #0A0A0A;
+    padding: 4px 8px 4px 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    color: white;
+    font-size: 12px;
+}

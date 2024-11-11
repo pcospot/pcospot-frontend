@@ -1,0 +1,14 @@
+.GlobalSideBar-container{
+    width: 242px;
+    height: calc(100vh - 60px);
+    background: #111111;
+    padding-left: 12px;
+    padding-right: 12px;
+    padding-top: 24px;
+    box-sizing: border-box;
+}
+.GlobalSideBar-container>h1{
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+}

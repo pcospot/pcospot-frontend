@@ -1,0 +1,42 @@
+{
+  "Binford Ltd.": {
+    "recent1" : {
+      "people" : "Ronald Richards",
+      "job" : "Designer",
+      "channel" : "General",
+      "message" : "That1's a good idea. I'll have to try that. So, what's the latest on the new client account we're wore"
+    },
+    "recent2" : {
+      "people" : "Ronald Richards",
+      "job" : "Developer",
+      "channel" : "General",
+      "message" : "That2's a good idea. I'll have to try that. So, what's the latest on the new client account we're wore"
+    },
+    "recent3" : {
+      "people" : "Ronald Richards",
+      "job" : "Designer",
+      "channel" : "General",
+      "message" : "That3's a good idea. I'll have to try that. So, what's the latest on the new client account we're wore"
+    }
+  },
+  "IBM" : {
+    "recent1" : {
+      "people" : "Ronald Richards",
+      "job" : "Developer",
+      "channel" : "General",
+      "message" : "That1's a good idea. I'll have to try that. So, what's the latest on the new client account we're wore"
+    },
+    "recent2" : {
+      "people" : "Ronald Richards",
+      "job" : "Designer",
+      "channel" : "General",
+      "message" : "That2's a good idea. I'll have to try that. So, what's the latest on the new client account we're wore"
+    },
+    "recent3" : {
+      "people" : "Ronald Richards",
+      "job" : "Developer",
+      "channel" : "General",
+      "message" : "That3's a good idea. I'll have to try that. So, what's the latest on the new client account we're wore"
+    }
+  }
+}

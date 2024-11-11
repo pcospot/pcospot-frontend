@@ -1,5 +1,6 @@
 .rightSideServerBar-container{
     min-width: 60px;
+    max-width: 60px;
     height: calc(100vh - 60px);
     background-color: #171717;
     display: flex;

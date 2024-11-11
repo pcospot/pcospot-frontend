@@ -11,9 +11,9 @@
     align-items: start;
 }
 .projectBox-container > h1{
-    font-family: 'Montserrat', sans-serif;
     font-size: 20px;
     font-weight: bold;
+    color: white;
 }
 .projectBox-container>div > p{
     font-size: 12px;
