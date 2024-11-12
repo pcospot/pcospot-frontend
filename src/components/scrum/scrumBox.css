@@ -1,0 +1,64 @@
+.scrum-problem-box{
+    box-sizing: border-box;
+    width: 100%;
+    min-height: 200px;
+    border-radius: 12px;
+    background: #171717;
+    padding : 10px;
+}
+.scrumBox-container{
+   width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+    height: 530px;
+    overflow: scroll;
+    -ms-overflow-style: none; /* 인터넷 익스플로러 */
+    scrollbar-width: none; /* 파이어폭스 */
+}
+.scrumBox-contents-container{
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    background: #111111;
+    border-radius: 12px;
+}
+.scrumBox-contents-container>h3{
+    margin-bottom: 10px;
+}
+.scrumBox-contents{
+    width: 100%;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 13px;
+}
+.scrumBox-content{
+    width: calc((100% - 26px)/3);
+    height: 200px;
+    padding: 0.5rem;
+    box-sizing: border-box;
+    border-radius: 12px;
+    background: #171717;
+}
+.scrumBox-content>h1{
+    font-size: 20px;
+    font-weight: 400;
+    margin-bottom: 12px;
+}
+.scrumBox-message{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.scrumBox-content>div>h2{
+    font-size: 16px;
+    font-weight: normal;
+}
+.scrumBox-content>div>p{
+    font-size: 16px;
+    font-weight: 100;
+    color: #919191;
+}

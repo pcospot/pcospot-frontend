@@ -3,7 +3,6 @@ import Header from "./components/header/header.tsx";
 import "./App.css";
 
 import CalenderPage from "./pages/calenderPage.tsx";
-import CheckPage from "./pages/checkPage.tsx";
 import GlobalPage from "./pages/GlobalPage.tsx";
 import DailyScrumPage from "./pages/dailyScrumPage.tsx";
 import FeedbackPage from "./pages/feedbackPage.tsx";
@@ -22,7 +21,6 @@ function App() {
                 <Route path="/calender" element={<CalenderPage />} />
                 <Route path="/general" element={<Generalpage />} />
                 <Route path="/scrum" element={<DailyScrumPage />} />
-                <Route path="/check" element={<CheckPage />} />
                 <Route path="/global" element={<GlobalPage />} />
                 <Route path="/feedback" element={<FeedbackPage />} />
                 <Route path="/notice" element={<NoticePage />} />
