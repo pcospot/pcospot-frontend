@@ -57,13 +57,6 @@ export default function RightSideServerBar() {
                     choose={selectedBar === "chats"}
                 />
             </Link>
-            <Link to="/check">
-                <BarButton
-                    src={CheckCircle}
-                    background={false}
-                    choose={selectedBar === "check"}
-                />
-            </Link>
             <Link to="/calender">
                 <BarButton
                     src={CalendarDots}

@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { motion } from "framer-motion";  // framer-motion 추가
 
 type ModalProps = {
     width?: string;
@@ -7,15 +8,18 @@ type ModalProps = {
     onOpen?: boolean;
     children?: React.ReactNode;
     className?: string;
+    variants ?: any
 };
 
 import "./modal.css";
 
-export default function Modal({ width, height, onOpen, onClose, children, className }: ModalProps) {
+export default function Modal({ width, height, onOpen, onClose, children, className,variants }: ModalProps) {
     const modalStyle = {
         width: `${width}`,
         height: `${height}`,
     };
+
+    const inputVariants = variants
 
     useEffect(() => {
         // onOpen이 true일 때만 클래스를 추가
@@ -25,13 +29,23 @@ export default function Modal({ width, height, onOpen, onClose, children, classN
                 element.classList.add(className);
             }
         }
-    }, [onOpen, className]);  // onOpen 또는 className이 변경될 때마다 실행
+    }, [onOpen, className]);
+
+    // 모달 애니메이션 설정
+
 
     // `onOpen`이 `true`일 때만 모달을 렌더링
     return onOpen ? (
-        <div style={modalStyle} className="modal-container">
+        <motion.div
+            style={modalStyle}
+            className="modal-container"
+            variants={inputVariants}
+            initial="hidden"
+            animate="visible"
+            exit="exit"
+        >
             {children}
-            <p onClick={onClose} style={{color:"white"}}>Close</p>
-        </div>
+            <p onClick={onClose} style={{ color: "white", cursor: "pointer" }}>Close</p>
+        </motion.div>
     ) : null;
 }
