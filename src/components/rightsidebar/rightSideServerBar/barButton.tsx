@@ -15,7 +15,7 @@ export default function BarButton({ src, choose, background, onClick, children  
         width: '36px',
         height: '36px',
         outline: choose ? '2px solid #00E984' : '1px solid #282828',
-        backgroundColor: choose ? 'rgba(0,233,132,0.15)' : '#282828',
+        backgroundColor: choose ? 'rgba(0,233,132,0.15)' : '#171717',
         ...(background && { backgroundImage: `url(${src})`, display: 'flex', alignItems: 'flex-end', justifyContent: 'flex-end' })
     };
 
