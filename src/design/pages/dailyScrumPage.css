@@ -1,10 +1,31 @@
 .dailyScrumPage-container {
     display: flex;
+    width: 100vw;
+    height: calc(100vh - 60px);
     justify-content: space-between;
     background-color: #0A0A0A;
 }
-.scrum-chat{
-    height: calc(90vh - 60px);
-    width: calc(97vw - 544px);
-
+.planning-container {
+    width: calc(100vw - 484px - 60px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.scrum-container{
+    width: 98%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    color: white;
+    justify-content: center;
+    padding: 10px;
+    gap: 10px;
+}
+.scrum-list{
+    width: 98%;
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    justify-content: center;
 }

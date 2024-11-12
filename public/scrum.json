@@ -1,0 +1,67 @@
+{
+  "days": [
+    {
+      "day": "1",
+      "problem": {
+        "issues": {
+          "bug": "Login page error",
+          "delay": "Server downtime"
+        }
+      },
+      "plan": {
+        "tasks": {
+          "setup": "Install dependencies",
+          "meeting": "Client kickoff"
+        }
+      },
+      "completed": {
+        "works": {
+          "codeReview": "Wade Warren",
+          "Chromesupport": "Brooklyn Simmons"
+        }
+      }
+    },
+    {
+      "day": "2",
+      "problem": {
+        "issues": {
+          "bug": "Payment gateway issue",
+          "delay": "Code review backlog"
+        }
+      },
+      "plan": {
+        "tasks": {
+          "setup": "Database migration",
+          "meeting": "Stakeholder sync"
+        }
+      },
+      "completed": {
+        "works": {
+          "codeReview": "Wade Warren",
+          "Chromesupport": "Brooklyn Simmons"
+        }
+      }
+    },
+    {
+      "day": "3",
+      "problem": {
+        "issues": {
+          "bug": "UI rendering issue",
+          "delay": "Resource unavailability"
+        }
+      },
+      "plan": {
+        "tasks": {
+          "setup": "API integration",
+          "meeting": "Review session"
+        }
+      },
+      "completed": {
+        "works": {
+          "codeReview": "Wade Warren",
+          "Chromesupport": "Brooklyn Simmons"
+        }
+      }
+    }
+  ]
+}
