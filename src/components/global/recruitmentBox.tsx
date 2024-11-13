@@ -1,22 +1,20 @@
-
 type RecruitmentBoxProps = {
-    json : any
-    key : string
-}
+    json: any;
+    key: string;
+    onclick?: () => void;
+};
 
-import "./recruitmentBox.css"
+import "./recruitmentBox.css";
 
-export default function RecruitmentBox({json, key}: RecruitmentBoxProps) {
-
+export default function RecruitmentBox({ json, key, onclick }: RecruitmentBoxProps) {
     const importImage = (index) => {
-        console.log(index)
-        return `/${index}.svg`
-    }
+        return `/${index}.svg`;
+    };
 
-    const post = json
+    const post = json;
 
     return (
-        <div className="recruitmentBox-container" key={key}>
+        <div className="recruitmentBox-container" key={key} onClick={onclick}>
             <h2>{post.title}</h2>
             <p>{post.content}</p>
             <div className="notificationBox-tagList">
@@ -25,10 +23,10 @@ export default function RecruitmentBox({json, key}: RecruitmentBoxProps) {
                 ))}
             </div>
             <div className="notificationBox-imageList">
-                {post.images && post.images.map((image : any) => (
-                    <img src={importImage(image)} className="image"></img>
+                {post.images && post.images.map((image: any) => (
+                    <img src={importImage(image)} className="image" key={image} />
                 ))}
             </div>
         </div>
-    )
+    );
 }
