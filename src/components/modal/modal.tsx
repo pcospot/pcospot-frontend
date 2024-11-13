@@ -45,7 +45,6 @@ export default function Modal({ width, height, onOpen, onClose, children, classN
             exit="exit"
         >
             {children}
-            <p onClick={onClose} style={{ color: "white", cursor: "pointer" }}>Close</p>
         </motion.div>
     ) : null;
 }
