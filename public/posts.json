@@ -8,7 +8,8 @@
       "start" : "2024-11-07",
       "end" : "2024-11-11",
       "Roles": ["designer", "developer"],
-      "requirement" : "어쩌구저쩌구"
+      "requirement" : "어쩌구저쩌구",
+      "id" : "me"
     },
     "post2" : {
       "title" : "The Art of Design Awards",
@@ -18,7 +19,8 @@
       "start" : "2024-11-07",
       "end" : "2024-11-11",
       "Roles": ["designer", "developer"],
-      "requirement" : "어쩌구저쩌구"
+      "requirement" : "어쩌구저쩌구",
+      "id" : "me"
     },
     "post3" : {
       "title" : "The Art of Design Awards",

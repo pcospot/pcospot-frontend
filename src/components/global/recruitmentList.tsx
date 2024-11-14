@@ -2,6 +2,8 @@ import { useEffect, useState, ChangeEvent, KeyboardEvent } from "react";
 import xCircle from "../../assets/XCircle.svg";
 import X from "../../assets/X.svg";
 import ImageSquare from "../../assets/ImagesSquare.svg";
+import Pencil from "../../assets/PencilSimpleLine.svg"
+import Trash from "../../assets/Trash.svg"
 import RecruitmentBox from "./recruitmentBox.tsx";
 import "./recruitmentList.css";
 import Modal from "../modal/modal.tsx";
@@ -16,6 +18,7 @@ export default function RecruitmentList() {
     const [roles, setRoles] = useState<string[]>([]); // 역할 배열
     const [roleInput, setRoleInput] = useState(""); // 입력 필드 상태
     const [files, setFiles] = useState<File[]>([]); // 여러 파일을 저장할 배열
+    const [selectMyPost, setSelectMyPost] = useState([]);
 
     const recruitmentPostsFetch = async () => {
         try {
@@ -43,14 +46,18 @@ export default function RecruitmentList() {
 
     const myModalOpen = () => {
         setIsMyModalOpen(true);
+        document.getElementsByClassName('recruitmentList-container')[0].className += ' blur';
+        myPostSelected()
     }
 
     const myModalClose = () => {
         setIsMyModalOpen(false);
+        document.getElementsByClassName('recruitmentList-container')[0].classList.remove('blur');
     }
 
+
     const detailModalOpen = (post: any) => {
-        setSelectedPost(post); // 선택된 게시글 정보 저장
+        setSelectedPost(post);
         setIsDetailModalOpen(true);
         document.getElementsByClassName('recruitmentList-container')[0].className += ' blur';
     };
@@ -86,13 +93,23 @@ export default function RecruitmentList() {
         }
     };
 
+    const myPostSelected = () => {
+        const myPosts = Object.values(recruitementData.posts).filter(
+            (post: any) => post.id === "me"
+        );
+        setSelectMyPost(myPosts);
+        console.log(myPosts);
+    };
+
+
+
     return (
         <>
             <div className="recruitmentList-container">
                 <div className="recruitmentList-search">
                     <input placeholder="Search a recruitment..." />
                     <button onClick={modalOpen} className="recruitment-button">New recruitment</button>
-                    <button className="my-button">My Page</button>
+                    <button onClick = {myModalOpen} className="my-button">My Page</button>
                 </div>
                 <div className="recruitmentList-recently-posts">
                     <h1 style={{ marginBottom: "12px", color: "white", fontSize: "20px" }}>Recently posted</h1>
@@ -118,10 +135,41 @@ export default function RecruitmentList() {
                     </div>
                 </div>
             </div>
-            <Modal width="50vw" height="76vh" onOpen={isMyModalOpen} onClose={myModalClose} className="recruitmentList-Mymodal" >
-
+            <Modal onOpen={isMyModalOpen} onClose={myModalClose} className="recruitmentList-Mymodal" >
+                <>
+                    <div className="title">
+                        <h1>My page</h1>
+                        <button onClick={myModalClose}>
+                            <img src={X} alt="x"/>
+                        </button>
+                    </div>
+                    <div className="contents">
+                        {selectMyPost.map((post) => (
+                            <div className="content-container">
+                                <div className="nameNcontent">
+                                    <h1 style={{fontWeight:"500"}}>{post.title}</h1>
+                                    <p>{post.content}</p>
+                                    <div className="rolesCon">
+                                        {post.Roles.map((role) => (
+                                            <span>{role}</span>
+                                        ))}
+                                    </div>
+                                </div>
+                                <div className="image">
+                                    {post.images.map((image) => (
+                                        <img src={`/${image}.svg`} alt={image} />
+                                    ))}
+                                </div>
+                                <div className="buttons">
+                                    <button><img src={Pencil} alt="pencilsimple"/></button>
+                                    <button><img src={Trash} alt ="trash"/></button>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </>
             </Modal>
-            <Modal width="50vw" height="76vh" onOpen={isDetailModalOpen} onClose={detailModalClose} className="recruitmentList-Detailmodal">
+            <Modal width="850px" height="725px" onOpen={isDetailModalOpen} onClose={detailModalClose} className="recruitmentList-Detailmodal">
                 {selectedPost ? (
                     <>
                         <div className="title">

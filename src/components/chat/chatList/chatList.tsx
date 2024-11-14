@@ -53,7 +53,7 @@ export default function ChatList({ children }: ChatListProps) {
     useEffect(() => {
         setMessages([...value])
         console.log(value)
-    }, [messages]);
+    }, []);
 
 
     return (
@@ -68,7 +68,6 @@ export default function ChatList({ children }: ChatListProps) {
                     timestamp={item.timeStamp}
                     imageUrl={item.imageUrl}
                     job={item.job}
-                    emotion={item.emotion}
                 />
             ))}
             <div className="chatList-container-box"></div>
