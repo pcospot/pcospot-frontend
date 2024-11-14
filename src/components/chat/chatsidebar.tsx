@@ -41,7 +41,7 @@ export default function ChatSidebar() {
                 </div>
 
                 <div className="left-sidebar-menu">
-                    <Link to="/notice" style={{textDecoration: "none"}}>
+                    <Link to="/chat" style={{textDecoration: "none"}}>
                         <Menu
                             channel="notice"
                             name="Notice"
@@ -49,7 +49,7 @@ export default function ChatSidebar() {
                             choose={getSelectedMenu("/notice")}
                         />
                     </Link>
-                    <Link to="/general" style={{textDecoration: "none"}}>
+                    <Link to="/chat" style={{textDecoration: "none"}}>
                         <Menu
                             channel="chat"
                             name="General"
@@ -57,7 +57,7 @@ export default function ChatSidebar() {
                             choose={getSelectedMenu("/general")}
                         />
                     </Link>
-                    <Link to="/project" style={{textDecoration: "none"}}>
+                    <Link to="/chat" style={{textDecoration: "none"}}>
                         <Menu
                             channel="chat"
                             name="Project"
@@ -65,7 +65,7 @@ export default function ChatSidebar() {
                             choose={getSelectedMenu("/project")}
                         />
                     </Link>
-                    <Link to="/feedback" style={{textDecoration: "none"}}>
+                    <Link to="/chat" style={{textDecoration: "none"}}>
                         <Menu
                             channel="chat"
                             name="Feedback"
@@ -94,7 +94,9 @@ export default function ChatSidebar() {
             </div>
             <div className="chat-sidebar-profile">
                 <SmallProfile people={people}></SmallProfile>
-                <img src={setting}/>
+                <Link to="/profile">
+                    <img src={setting}/>
+                </Link>
             </div>
         </div>
     );

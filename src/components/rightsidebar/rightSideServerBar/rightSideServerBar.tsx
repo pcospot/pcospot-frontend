@@ -24,7 +24,7 @@ export default function RightSideServerBar() {
     // 현재 경로에 따라 선택된 BarButton 설정
     const getSelectedBar = () => {
         switch (location.pathname) {
-            case "/":
+            case "/chat":
                 return "house";
             case "/global":
                 return "chats";
@@ -43,7 +43,7 @@ export default function RightSideServerBar() {
 
     return (
         <div className="rightSideServerBar-container">
-            <Link to="/">
+            <Link to="/chat">
                 <BarButton
                     src={house}
                     background={false}
