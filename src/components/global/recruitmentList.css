@@ -321,3 +321,88 @@
     gap: 4px;
     width: 100%;
 }
+.recruitmentList-Mymodal{
+    padding: 24px;
+    border-radius: 16px;
+    width: 850px;
+    height: 725px;
+    background: #171717;
+    top: 50vh;
+    left: 50vw;
+    transform: translate(-50%, -50%);
+    color: white;
+}
+.recruitmentList-Mymodal h1{
+    font-size: 20px;
+}
+.recruitmentList-Mymodal p{
+    font-size: 14px;
+    font-weight: normal;
+    color: #919191;
+}
+.recruitmentList-Mymodal span{
+    height: 25px;
+    padding: 4px 8px;
+    border-radius: 8px;
+    color: white;
+    font-size: 12px;
+    background: #171717;
+}
+.recruitmentList-Mymodal .title{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 26px;
+}
+.recruitmentList-Mymodal .contents{
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+.recruitmentList-Mymodal .content-container{
+    width: 100%;
+    height: 200px;
+    background: #0a0a0a;
+    padding: 16px;
+    display: flex;
+
+    border-radius: 12px;
+}
+.recruitmentList-Mymodal .nameNcontent{
+    display: flex;
+    flex-direction: column;
+    width: 355px;
+    height: 100%;
+    gap: 4px;
+    margin-right: 77px;
+}
+.recruitmentList-Mymodal .rolesCon{
+    display: flex;
+    gap: 8px;
+    margin-top: auto;
+}
+.recruitmentList-Mymodal .image {
+    width: 286px;
+    height: 168px;
+    flex-wrap: wrap;
+    display: flex;
+    gap: 17px; /* 이 속성으로 위아래 및 양옆 갭을 설정 */
+    margin-right: 16px;
+}
+
+.recruitmentList-Mymodal .image > img {
+    width: 134px; /* 갭을 반영하여 너비 조정 */
+    height: 76px;
+}
+.recruitmentList-Mymodal .buttons{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.recruitmentList-Mymodal .buttons>button{
+    width: 36px;
+    height: 36px;
+    background: #171717;
+    border-radius: 8px;
+}

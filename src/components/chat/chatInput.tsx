@@ -1,12 +1,12 @@
-import { useState, ChangeEvent, useEffect } from "react";
+import { useState, useEffect } from "react";
+import { Editor, EditorState, RichUtils, convertToRaw, convertFromRaw } from "draft-js";
 import "./chatInput.css";
 import AddImage from "./chatFunction/addImage";
 import AddUnderline from "./chatFunction/addUnderline";
 import AddMiddleLine from "./chatFunction/addMiddleLine";
-import AddItalicFont from "./chatFunction/addItalicFont.tsx";
-import Modal from "../modal/modal.tsx";
-import PrevImage from "./chatFunction/prevImage.tsx";
-import EmogiAdd from "./chatFunction/emogiAdd.tsx";
+import AddItalicFont from "./chatFunction/addItalicFont";
+import Modal from "../modal/modal";
+import PrevImage from "./chatFunction/prevImage";
 import { useFileStore } from "../Stores/useFileStore";
 import { useMessageStore } from "../Stores/useMessageStore";
 import sendImage from "../../assets/sendImage.svg";
@@ -16,67 +16,101 @@ export default function ChatInput() {
     const setMessage = useMessageStore((state) => state.setMessage);
     const message = useMessageStore((state) => state.message);
 
-
-    const [clickedStates, setClickedStates] = useState([false, false, false, false]);
+    const [editorState, setEditorState] = useState(EditorState.createEmpty());
     const [isModalOpen, setIsModalOpen] = useState(false);
-
-    // 메시지 입력 핸들러
-    const messageInput = (e: ChangeEvent<HTMLInputElement>) => {
-        setMessage(e.target.value);
-    };
-
-
-    // 클릭 상태 토글 함수
-    const toggleClickedState = (index: number) => {
-        setClickedStates((prevStates) =>
-            prevStates.map((clicked, i) => (i === index ? !clicked : clicked))
-        );
-    };
 
     useEffect(() => {
         if (file) {
-            setIsModalOpen(true); // 파일이 추가될 때 모달을 열기
+            setIsModalOpen(true);
         }
     }, [file]);
 
+    useEffect(() => {
+        // 저장된 메시지가 있으면 불러오기
+        const savedMessage = localStorage.getItem("savedMessage");
+        if (savedMessage) {
+            const rawContent = JSON.parse(savedMessage);
+            const contentState = convertFromRaw(rawContent);
+            setEditorState(EditorState.createWithContent(contentState));
+        }
+    }, []);
+
+    // 메시지 입력 핸들러
+    const messageInput = (e: any) => {
+        setMessage(e.target.value);
+    };
+
+    // 스타일 적용 토글 함수
+    const toggleInlineStyle = (style: string) => {
+        const newState = RichUtils.toggleInlineStyle(editorState, style);
+        setEditorState(newState);
+    };
+
+    // 메시지 저장 함수
+    const saveMessage = () => {
+        const contentState = editorState.getCurrentContent();
+        const rawContentState = convertToRaw(contentState); // ContentState를 JSON으로 변환
+        setMessage(JSON.stringify(rawContentState)); // Zustand 상태에 저장
+        localStorage.setItem("savedMessage", JSON.stringify(rawContentState)); // 로컬스토리지에 저장
+        console.log("Message saved:", rawContentState); // 로그로 출력
+    };
+
+    // 저장된 메시지를 표시하는 함수
+    const renderSavedMessage = () => {
+        if (message) {
+            const rawContent = JSON.parse(message);
+            const contentState = convertFromRaw(rawContent);
+            const savedEditorState = EditorState.createWithContent(contentState);
+            return <Editor editorState={savedEditorState} readOnly={true} customStyleMap={{
+                UNDERLINE: { textDecoration: "underline" },
+                STRIKETHROUGH: { textDecoration: "line-through" },
+                ITALIC: { fontStyle: "italic" },
+            }} />;
+        }
+        return null;
+    };
+
     return (
         <div className="chatInput-container">
-            <Modal width="calc(95vw - 544px)" height='200px' onOpen={isModalOpen} onClose={() => setIsModalOpen(false)} className="chatInput-modal">
-                <PrevImage  height="150px" src={file}/>
+            <Modal
+                width="calc(95vw - 544px)"
+                height="200px"
+                onOpen={isModalOpen}
+                onClose={() => setIsModalOpen(false)}
+                className="chatInput-modal"
+            >
+                <PrevImage height="150px" src={file} />
             </Modal>
+
             <div className="input-wrapper">
-                <input
-                    placeholder="Send a message..."
-                    onChange={messageInput}
-                    className="chatInput-input"
+                <Editor
+                    editorState={editorState}
+                    onChange={setEditorState}
+                    customStyleMap={{
+                        UNDERLINE: { textDecoration: "underline" },
+                        STRIKETHROUGH: { textDecoration: "line-through" },
+                        ITALIC: { fontStyle: "italic" },
+                    }}
+                    editorClassName="chatInput-input"
                 />
-                <p id="message">{message}</p>
             </div>
+
             <div className="chatInput-function">
                 <div className="chatInput-function-lists">
                     <AddImage />
-                    <AddUnderline
-                        text="message"
-                        clicked={clickedStates[0]}
-                        onClick={() => toggleClickedState(0)}
-                    />
-                    <AddMiddleLine
-                        text="message"
-                        clicked={clickedStates[1]}
-                        onClick={() => toggleClickedState(1)}
-                    />
-                    <AddItalicFont
-                        text="message"
-                        clicked={clickedStates[2]}
-                        onClick={() => toggleClickedState(2)}
-                    />
-                    {console.log(file)}
-
+                    <AddUnderline onClick={() => toggleInlineStyle("UNDERLINE")} />
+                    <AddMiddleLine onClick={() => toggleInlineStyle("STRIKETHROUGH")} />
+                    <AddItalicFont onClick={() => toggleInlineStyle("ITALIC")} />
                 </div>
-                <button onClick={() => console.log(message)}>
+                <button onClick={saveMessage}>
                     <img src={sendImage} alt="Send" />
                 </button>
             </div>
+
+            {/*<div className="savedMessage">*/}
+            {/*    /!* 저장된 메시지 표시 *!/*/}
+            {/*    {renderSavedMessage()}*/}
+            {/*</div>*/}
         </div>
     );
 }
