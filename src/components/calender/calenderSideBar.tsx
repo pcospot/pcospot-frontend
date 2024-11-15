@@ -17,7 +17,7 @@ export default function CalenderSideBar({ schedule }: calenderSideBarProps) {
     const caledalEventStore = useCalendarStore(state => state.calendarEvent);
     const setCalendarEvent = useCalendarStore(state => state.setCalendarEvent);
 
-    const styleSet = (company) => {
+    const styleSet = (company : any) => {
         switch (company) {
             case 'Binford Ltd.': return '#2982FF';
             case 'Astro': return '#FFC229';
