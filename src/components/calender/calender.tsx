@@ -7,7 +7,7 @@ import { useState, useEffect, useRef } from "react";
 import useCalendarStore from "../Stores/useCalendarStore.tsx";
 
 type CalendarProps = {
-    events: { title: string; date: string }[];
+    events: { title: string; date: string; message: string }[];
 };
 
 export default function Calendar({ events }: CalendarProps) {
@@ -38,20 +38,25 @@ export default function Calendar({ events }: CalendarProps) {
         const eventTitles = document.getElementsByClassName('fc-event-title');
 
         for (let i = 0; i < eventsElements.length; i++) {
-            const eventTitle = eventTitles[i]?.innerHTML;
+            const eventElement = eventsElements[i] as HTMLElement;
+            const eventTitleElement = eventTitles[i] as HTMLElement;
+            const eventTitle = eventTitleElement?.innerHTML;
 
-            switch (eventTitle) {
-                case 'Binford Ltd.':
-                    eventsElements[i].style.borderLeft = '3px solid #2982FF';
-                    break;
-                case 'Astro':
-                    eventsElements[i].style.borderLeft = '3px solid #FFC229';
-                    break;
-                default:
-                    eventsElements[i].style.borderLeft = '3px solid #919191';
+            if (eventElement) {
+                switch (eventTitle) {
+                    case 'Binford Ltd.':
+                        eventElement.style.borderLeft = '3px solid #2982FF';
+                        break;
+                    case 'Astro':
+                        eventElement.style.borderLeft = '3px solid #FFC229';
+                        break;
+                    default:
+                        eventElement.style.borderLeft = '3px solid #919191';
+                }
             }
         }
     };
+
 
     const getModalEvents = (date: string) => {
         return events.filter(event => event.date === date);

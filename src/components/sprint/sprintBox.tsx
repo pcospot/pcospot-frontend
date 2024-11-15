@@ -1,8 +1,8 @@
 import "./sprintBox.css";
-import testImage from "../../assets/List.svg"
+import testImage from "../../assets/List.svg";
 import checkList from "../../assets/ListChecks.svg";
 import Modal from "../modal/modal.tsx";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 
 export default function SprintBox() {
     const modalVariants = {
@@ -60,20 +60,37 @@ export default function SprintBox() {
         setCurrentIndex((prev) => (prev < sprintData.length - 1 ? prev + 1 : prev));
     };
 
+    // refs 추가
+    const wrapperRef = useRef<HTMLDivElement>(null);
+    const containerRef = useRef<HTMLDivElement>(null);
+    const listRef = useRef<HTMLDivElement>(null);
+
     const openModal = (index: number) => {
         setIsModalOpen(true);
         setOpenIndex(index);
-        document.getElementsByClassName("sprintBox-wrapper")[0].style.height = '500px';
-        document.getElementsByClassName("sprintBox-container")[0].style.height = "100%";
-        document.getElementsByClassName("sprint-list")[0].style.height = "100%";
+        if (wrapperRef.current) {
+            (wrapperRef.current as HTMLElement).style.height = '500px';
+        }
+        if (containerRef.current) {
+            (containerRef.current as HTMLElement).style.height = "100%";
+        }
+        if (listRef.current) {
+            (listRef.current as HTMLElement).style.height = "100%";
+        }
     };
 
     const closeModal = () => {
         setIsModalOpen(false);
         setOpenIndex(null);
-        document.getElementsByClassName("sprintBox-wrapper")[0].style.height = '100%';
-        document.getElementsByClassName("sprintBox-container")[0].style.height = "100%";
-        document.getElementsByClassName("sprint-list")[0].style.height = "100%";
+        if (wrapperRef.current) {
+            (wrapperRef.current as HTMLElement).style.height = '100%';
+        }
+        if (containerRef.current) {
+            (containerRef.current as HTMLElement).style.height = "100%";
+        }
+        if (listRef.current) {
+            (listRef.current as HTMLElement).style.height = "100%";
+        }
     };
 
     // mouseover 시 이미지 변경 처리 함수
@@ -84,11 +101,10 @@ export default function SprintBox() {
 
     const mouseOutImage = () => {
         setImageSrc(checkList);  // 원하는 이미지로 변경
-
-    }
+    };
 
     return (
-        <div className="sprintBox-wrapper">
+        <div ref={wrapperRef} className="sprintBox-wrapper">
             <div className="sprintBox-buttons">
                 <button className="sprintBox-beforeButton" onClick={handlePrev} disabled={currentIndex === 0}>
                     &lt;
@@ -97,7 +113,7 @@ export default function SprintBox() {
                     &gt;
                 </button>
             </div>
-            <div className="sprintBox-container">
+            <div ref={containerRef} className="sprintBox-container">
                 <div className="sprintBox-contents" style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
                     {sprintData.map((item, index) => (
                         <div key={index} className="sprintBox-content">
@@ -128,13 +144,12 @@ export default function SprintBox() {
                                     variants={modalVariants}
                                 >
                                     <div className="sprintBox-modal-contents">
-                                        {Object.values(item[1].list).map((item, index) => (
+                                        {Object.values(item[1].list).map((item :any) => (
                                             <span>
-                                            {item}{" "}
+                                            {item}
                                         </span>
                                         ))}
                                     </div>
-
                                 </Modal>
                             )}
                         </div>

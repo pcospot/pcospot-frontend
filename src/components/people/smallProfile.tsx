@@ -1,4 +1,3 @@
-import profileImage from "../../assets/profile image.svg";
 import PeopleBox from "./peopleBox.tsx";
 
 type SmallProfileProps = {

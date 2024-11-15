@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import ChatSidebar from "../components/chat/chatsidebar.tsx";
 import RightSideServerBar from "../components/rightsidebar/rightSideServerBar/rightSideServerBar.tsx";
 import '../design/pages/mainPage.css';

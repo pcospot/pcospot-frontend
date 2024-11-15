@@ -1,11 +1,9 @@
 import ChatSidebar from "../components/chat/chatsidebar.tsx";
 import RightSideServerBar from "../components/rightsidebar/rightSideServerBar/rightSideServerBar.tsx";
 import RightSidePeopleBar from "../components/rightsidebar/rightSidePeopleBar/rightSidePeopleBar.tsx";
-import ChatInput from "../components/chat/chatInput.tsx";
 import sparckle from "../assets/Sparkle.svg"
-import React, {useEffect, useState} from "react";
+import  {useEffect, useState} from "react";
 import "../design/pages/dailyScrumPage.css"
-import {UserType} from "./mainPage.tsx";
 import ScrumBox from "../components/scrum/scrumBox.tsx";
 import SprintBox from "../components/sprint/sprintBox.tsx";
 import returnLogin from "../function/returnLogin.tsx";
@@ -37,7 +35,7 @@ export default function DailyScrumPage()  {
         setIsSidebarVisible(prevState => !prevState);
 
         // planning-container의 스타일을 변경
-        const planningContainer = document.querySelector(".planning-container");
+        const planningContainer = document.querySelector(".planning-container") as HTMLElement;
         if (planningContainer) {
             planningContainer.style.width = isSidebarVisible ? "calc(100vw - 60px)" : "100%";
         }

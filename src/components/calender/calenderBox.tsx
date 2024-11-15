@@ -21,7 +21,7 @@ export default function CalenderBox({schedule}: calendarBoxProps) {
 
     // 현재 보이는 달과 연도를 가져오는 함수
     const updateCurrentMonthYear = () => {
-        if (calendarRef && calendarRef.getApi) {
+        if (calendarRef && (calendarRef.getApi)) {
             const currentDate = calendarRef.getApi().getDate(); // 현재 날짜를 가져옴
             setCurrentMonth(monthNames[currentDate.getMonth()]); // 월 이름 설정
             setCurrentYear(currentDate.getFullYear());

@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import "../design/pages/signInPage.css";
 import returnLogin from "../function/returnLogin.tsx";
 import { decodeJwt } from "jose";
-import { useEffect, useState } from "react";
+import {useState } from "react";
 import { useNavigate } from "react-router-dom";  // useNavigate 훅은 컴포넌트 상단에서 호출해야 합니다.
 
 export default function SignInPage() {

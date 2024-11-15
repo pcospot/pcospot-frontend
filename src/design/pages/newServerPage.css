@@ -1,0 +1,102 @@
+.newServerPage-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    background: #0a0a0a;
+}
+.newServerPage-box{
+    width: 900px;
+    height: 800px;
+    background: #171717;
+    border-radius: 16px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 16px;
+
+}
+.newServerPage-box h1{
+    font-size: 20px;
+    font-weight: 400;
+    margin-bottom: 6px;
+}
+.newServerPage-box input{
+    border: none;
+    width: 100%;
+    background: #111111;
+    padding: 8px;
+    border-radius: 8px;
+}
+.newServerPage-box input[type=date]{
+    color: white;
+}
+.newServerPage-box input:focus{
+    outline: #00E984 solid 1px;
+}
+.roleschoose{
+    width: 100%;
+    display: flex;
+    gap: 4px;
+}
+.roleInput{
+    color:white;
+    width: 50%; !important;
+}
+.newServerPage-box input[type=text]{
+    color: white;
+}
+.rolescontents{
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 8px;
+    margin-top: 8px;
+}
+.rolescontent {
+    padding: 4px 8px;
+    height: 100%;
+    border-radius: 8px;
+    background: #111111;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    gap: 4px;
+    width: auto;
+    flex-shrink: 0; /* 요소가 축소되지 않도록 방지 */
+}
+
+.newServerPage-box .buttons{
+    height: 400px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    color: white;
+    gap: 8px;
+}
+.buttons > button:nth-child(1) {
+    background: #111111;
+    width: 80px;
+    height: 40px;
+    padding: 4px 8px;
+}
+.buttons > button:nth-child(2) {
+    width: 80px;
+    height: 40px;
+    background: #111111;
+    padding: 4px 8px;
+    color: black;
+    transition-property: color;
+    transition-duration: 0.2s;
+}
+.buttons > button:nth-child(2):hover {
+    background: #0a0a0a;
+    border : 1px solid #00E984;
+    color: white;
+    border-radius: 8px;: ;
+}

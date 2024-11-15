@@ -15,7 +15,6 @@ import X from "../../assets/X.svg";
 export default function ChatInput() {
     const files = useFileStore((state) => state.files);
     const setMessage = useMessageStore((state) => state.setMessage);
-    const message = useMessageStore((state) => state.message);
 
     const [editorState, setEditorState] = useState(EditorState.createEmpty());
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -35,10 +34,6 @@ export default function ChatInput() {
         }
     }, []);
 
-    const messageInput = (e: any) => {
-        setMessage(e.target.value);
-    };
-
     const toggleInlineStyle = (style: string) => {
         const newState = RichUtils.toggleInlineStyle(editorState, style);
         setEditorState(newState);
@@ -47,10 +42,14 @@ export default function ChatInput() {
     const saveMessage = () => {
         const contentState = editorState.getCurrentContent();
         const rawContentState = convertToRaw(contentState);
-        setMessage(JSON.stringify(rawContentState));
-        localStorage.setItem("savedMessage", JSON.stringify(rawContentState));
-        console.log("Message saved:", rawContentState);
+        const messageToSave = JSON.stringify(rawContentState);  // Save message content
+
+        setMessage(messageToSave); // Update the message state with the saved message
+        localStorage.setItem("savedMessage", messageToSave); // Save to localStorage for persistence
+
+        console.log("Message saved:", messageToSave); // Log the saved message
     };
+
 
     return (
         <div className="chatInput-container">
@@ -76,7 +75,6 @@ export default function ChatInput() {
                         STRIKETHROUGH: { textDecoration: "line-through" },
                         ITALIC: { fontStyle: "italic" },
                     }}
-                    editorClassName="chatInput-input"
                 />
             </div>
 

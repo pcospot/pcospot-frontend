@@ -1,9 +1,8 @@
 import { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import {Link, useLocation, useNavigate} from "react-router-dom";
 import "../../../design/rightSideServerBar.css";
 import house from "../../../assets/House.svg";
 import GlobalCircle from "../../../assets/GlobeSimple.svg";
-import CheckCircle from "../../../assets/CheckCircle.svg";
 import CalendarDots from "../../../assets/CalendarDots.svg";
 import Plus from "../../../assets/Plus.svg";
 import back from "../../../assets/back.svg";
@@ -13,6 +12,7 @@ import ServerButton from "./serverButton.tsx";
 export default function RightSideServerBar() {
     const [selectedServer, setSelectedServer] = useState<string | null>(null);
     const location = useLocation(); // 현재 URL 경로를 가져옴
+    const navigate = useNavigate();
 
     const servers = [
         { id: "server1", background: back, alarm: 100 },
@@ -42,46 +42,50 @@ export default function RightSideServerBar() {
     const selectedBar = getSelectedBar();
 
     return (
-        <div className="rightSideServerBar-container">
-            <Link to="/chat">
-                <BarButton
-                    src={house}
-                    background={false}
-                    choose={selectedBar === "house"}
-                />
-            </Link>
-            <Link to="/global">
-                <BarButton
-                    src={GlobalCircle}
-                    background={false}
-                    choose={selectedBar === "chats"}
-                />
-            </Link>
-            <Link to="/calender">
-                <BarButton
-                    src={CalendarDots}
-                    background={false}
-                    choose={selectedBar === "calendar"}
-                />
-            </Link>
-            {servers.map((item) => (
-                <Link to={"/chat"}>
-                    <ServerButton
-                        key={item.id}
-                        background={item.background}
-                        alarm={item.alarm}
-                        arcaived={item.arcaived}
-                        choose={selectedServer === item.id}
-                        onClick={() => setSelectedServer(item.id)}
+        <>
+            <div className="rightSideServerBar-container">
+                <Link to="/chat">
+                    <BarButton
+                        src={house}
+                        background={false}
+                        choose={selectedBar === "house"}
                     />
                 </Link>
+                <Link to="/global">
+                    <BarButton
+                        src={GlobalCircle}
+                        background={false}
+                        choose={selectedBar === "chats"}
+                    />
+                </Link>
+                <Link to="/calender">
+                    <BarButton
+                        src={CalendarDots}
+                        background={false}
+                        choose={selectedBar === "calendar"}
+                    />
+                </Link>
+                {servers.map((item) => (
+                    <Link to={"/chat"}>
+                        <ServerButton
+                            key={item.id}
+                            background={item.background}
+                            alarm={item.alarm}
+                            arcaived={item.arcaived}
+                            choose={selectedServer === item.id}
+                            onClick={() => setSelectedServer(item.id)}
+                        />
+                    </Link>
 
-            ))}
-            <BarButton
-                src={Plus}
-                background={false}
-                choose={selectedBar === "plus"}
-            />
-        </div>
+                ))}
+                <BarButton
+                    src={Plus}
+                    background={false}
+                    choose={selectedBar === "plus"}
+                    onClick={() => {navigate("/newServer")}}
+                />
+            </div>
+        </>
+
     );
 }

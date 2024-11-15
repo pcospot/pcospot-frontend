@@ -7,7 +7,7 @@ type props = {
 
 import "./peopleBox.css"; // 경로 수정 ("/"에서 "./"로 변경)
 
-export default function PeopleBox({ name, online, job, img }: props) {
+export default function PeopleBox({ name, online, img }: props) {
     return (
         <div className="people-box-container">
             <div style={{ backgroundImage: `url(${img})` }} className="people-box-image">

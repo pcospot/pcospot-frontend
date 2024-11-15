@@ -9,8 +9,25 @@ import "./recruitmentList.css";
 import Modal from "../modal/modal.tsx";
 import PrevImage from "../chat/chatFunction/prevImage.tsx";
 
+interface Post {
+    title: string;
+    content: string;
+    tags: string[];
+    images?: string[];
+    start: string;
+    end: string;
+    Roles: string[];
+    requirement: string;
+    id?: string;
+}
+
+interface RecruitmentData {
+    posts: Record<string, Post>;
+}
+
+
 export default function RecruitmentList() {
-    const [recruitementData, setRecruitementData] = useState({ posts: {} });
+    const [recruitementData, setRecruitementData] = useState<RecruitmentData>({ posts: {} });
     const [isNewModalOpen, setIsNewModalOpen] = useState(false);
     const [isMyModalOpen, setIsMyModalOpen] = useState(false);
     const [isDetailModalOpen, setIsDetailModalOpen] = useState(false);
@@ -18,7 +35,7 @@ export default function RecruitmentList() {
     const [roles, setRoles] = useState<string[]>([]); // 역할 배열
     const [roleInput, setRoleInput] = useState(""); // 입력 필드 상태
     const [files, setFiles] = useState<File[]>([]); // 여러 파일을 저장할 배열
-    const [selectMyPost, setSelectMyPost] = useState([]);
+    const [selectMyPost, setSelectMyPost] = useState<Post[]>([]);
 
     const recruitmentPostsFetch = async () => {
         try {
@@ -97,14 +114,15 @@ export default function RecruitmentList() {
     };
 
 
-
     const myPostSelected = () => {
         const myPosts = Object.values(recruitementData.posts).filter(
             (post: any) => post.id === "me"
-        );
-        setSelectMyPost(myPosts);
+        ) as unknown as any;
+
+        myPosts && setSelectMyPost(myPosts);
         console.log(myPosts);
     };
+
 
 
 
@@ -161,9 +179,9 @@ export default function RecruitmentList() {
                                     </div>
                                 </div>
                                 <div className="image">
-                                    {post.images.map((image) => (
+                                    {post.images && (post.images.map((image) => (
                                         <img src={`/${image}.svg`} alt={image} />
-                                    ))}
+                                    )))}
                                 </div>
                                 <div className="buttons">
                                     <button><img src={Pencil} alt="pencilsimple"/></button>

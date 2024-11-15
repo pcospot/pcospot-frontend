@@ -7,7 +7,7 @@ type RecruitmentBoxProps = {
 import "./recruitmentBox.css";
 
 export default function RecruitmentBox({ json, key, onclick }: RecruitmentBoxProps) {
-    const importImage = (index) => {
+    const importImage = (index : any) => {
         return `/${index}.svg`;
     };
 
@@ -18,7 +18,7 @@ export default function RecruitmentBox({ json, key, onclick }: RecruitmentBoxPro
             <h2>{post.title}</h2>
             <p>{post.content}</p>
             <div className="notificationBox-tagList">
-                {post.tags.map((tag, index) => (
+                {post.tags.map((tag :string, index:string) => (
                     <span key={index} className="tag">{tag}</span>
                 ))}
             </div>

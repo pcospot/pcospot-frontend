@@ -1,15 +1,14 @@
 import { Link, useLocation } from "react-router-dom";
 import "./chatsidebar.css";
 import ProjectBox from "../project/projectBox.tsx";
-import image from "../../assets/ImagesSquare.svg"
+import image from "../../assets/ImagesSquare.svg";
 import Menu from "./menu.tsx";
 import SmallProfile from "../people/smallProfile.tsx";
-import X from "../../assets/X.svg"
+import X from "../../assets/X.svg";
 import profileImage from "../../assets/profile image.svg";
 import setting from "../../assets/setting.svg";
 import Modal from "../modal/modal.tsx";
-import addButton from "../../assets/addButton.svg";
-import React, {useState} from "react";
+import { useState } from "react";
 
 export default function ChatSidebar() {
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -21,39 +20,40 @@ export default function ChatSidebar() {
         progress: '70'
     };
 
-    const people =
-        {
-            name: '한석규',
-            online: true,
-            job: 'Developer',
-            img: profileImage
-        }
-
+    const people = {
+        name: '한석규',
+        online: true,
+        job: 'Developer',
+        img: profileImage
+    };
 
     const location = useLocation(); // 현재 URL 경로 가져오기
-    const modalOpen = () =>{
+    const modalOpen = () => {
         setIsModalOpen(true);
-        document.getElementsByClassName('chat')[0].className += ' blur';
-        document.getElementsByClassName('chatInput-container')[0].style.top = "82vh";
+        const chatElement = document.getElementsByClassName('chat')[0] as HTMLElement;
+        chatElement.className += ' blur';
+        const chatInputContainer = document.getElementsByClassName('chatInput-container')[0] as HTMLElement;
+        chatInputContainer.style.top = "82vh";
+    };
 
-    }
-    const modalClose = () =>{
+    const modalClose = () => {
         setIsModalOpen(false);
-        document.getElementsByClassName("chat")[0].classList.remove('blur');
-        document.getElementsByClassName('chatInput-container')[0].style.top = "88vh";
-    }
+        const chatElement = document.getElementsByClassName("chat")[0] as HTMLElement;
+        chatElement.classList.remove('blur');
+        const chatInputContainer = document.getElementsByClassName('chatInput-container')[0] as HTMLElement;
+        chatInputContainer.style.top = "88vh";
+    };
 
     const getSelectedMenu = (path: string) => location.pathname === path;
 
     return (
         <>
-
             <div className="left-sidebar">
                 <div className="left-sidebar-content">
-                    <ProjectBox name={company.name} days={company.days} progress={company.progress}/>
+                    <ProjectBox name={company.name} days={company.days} progress={company.progress} />
 
                     <div className="google-meet">
-                    <div className="google-meet-time">
+                        <div className="google-meet-time">
                             <h6>Open Google Meet</h6>
                             <p>Meet ongoing for X hrs</p>
                         </div>
@@ -61,7 +61,7 @@ export default function ChatSidebar() {
                     </div>
 
                     <div className="left-sidebar-menu">
-                        <Link to="/chat" style={{textDecoration: "none"}}>
+                        <Link to="/chat" style={{ textDecoration: "none" }}>
                             <Menu
                                 channel="notice"
                                 name="Notice"
@@ -69,7 +69,7 @@ export default function ChatSidebar() {
                                 choose={getSelectedMenu("/notice")}
                             />
                         </Link>
-                        <Link to="/chat" style={{textDecoration: "none"}}>
+                        <Link to="/chat" style={{ textDecoration: "none" }}>
                             <Menu
                                 channel="chat"
                                 name="General"
@@ -77,7 +77,7 @@ export default function ChatSidebar() {
                                 choose={getSelectedMenu("/general")}
                             />
                         </Link>
-                        <Link to="/chat" style={{textDecoration: "none"}}>
+                        <Link to="/chat" style={{ textDecoration: "none" }}>
                             <Menu
                                 channel="chat"
                                 name="Project"
@@ -85,7 +85,7 @@ export default function ChatSidebar() {
                                 choose={getSelectedMenu("/project")}
                             />
                         </Link>
-                        <Link to="/chat" style={{textDecoration: "none"}}>
+                        <Link to="/chat" style={{ textDecoration: "none" }}>
                             <Menu
                                 channel="chat"
                                 name="Feedback"
@@ -93,7 +93,7 @@ export default function ChatSidebar() {
                                 choose={getSelectedMenu("/feedback")}
                             />
                         </Link>
-                        <Link to="/calender" style={{textDecoration: "none"}}>
+                        <Link to="/calender" style={{ textDecoration: "none" }}>
                             <Menu
                                 channel="schedule"
                                 name="Schedule"
@@ -101,7 +101,7 @@ export default function ChatSidebar() {
                                 choose={getSelectedMenu("/schedule")}
                             />
                         </Link>
-                        <Link to="/scrum" style={{textDecoration: "none"}}>
+                        <Link to="/scrum" style={{ textDecoration: "none" }}>
                             <Menu
                                 channel="scrum"
                                 name="Daily scrum"
@@ -114,15 +114,14 @@ export default function ChatSidebar() {
                 </div>
                 <div className="chat-sidebar-profile">
                     <SmallProfile people={people}></SmallProfile>
-                    <img src={setting} onClick={modalOpen}/>
+                    <img src={setting} onClick={modalOpen} />
                 </div>
-
             </div>
             <Modal width="850px" height="725px" onOpen={isModalOpen} onClose={modalClose} className="chatsidebar-modal-container">
                 <div className="head">
                     <h1>My profile</h1>
                     <button>
-                        <img src={X} onClick={modalClose}/>
+                        <img src={X} onClick={modalClose} />
                     </button>
                 </div>
                 <div className="display-name">
@@ -131,22 +130,22 @@ export default function ChatSidebar() {
                 </div>
                 <div className="about-me">
                     <h3>About me</h3>
-                    <input/>
+                    <input />
                 </div>
                 <div className="prevNimage">
-                    <div style={{width:'393px'}}>
-                        <h3 style={{marginBottom:"8px"}}>Preview</h3>
+                    <div style={{ width: '393px' }}>
+                        <h3 style={{ marginBottom: "8px" }}>Preview</h3>
                         <div className="prev">
-                            <img src={profileImage}/>
+                            <img src={profileImage} />
                             <p>{name}</p>
                         </div>
                     </div>
                     <div>
-                        <h3 style={{marginBottom:"8px"}}>Avatar upload</h3>
+                        <h3 style={{ marginBottom: "8px" }}>Avatar upload</h3>
                         <label htmlFor="file">
                             <div className="addimage">
-                                <img src={image} style={{marginBottom:"4px"}}/>
-                                <p style={{fontSize:"16px", color:"#919191"}}>Drag or select a photo to upload</p>
+                                <img src={image} style={{ marginBottom: "4px" }} />
+                                <p style={{ fontSize: "16px", color: "#919191" }}>Drag or select a photo to upload</p>
                             </div>
                         </label>
                         <input

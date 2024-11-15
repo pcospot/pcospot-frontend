@@ -14,7 +14,7 @@ export default function GlobalPage() {
     const toggleSidebar = () => {
         setIsSidebarVisible(prevState => !prevState);
 
-        const recruitmentListcon = document.querySelector(".recruitmentList-container");
+        const recruitmentListcon = document.querySelector(".recruitmentList-container") as HTMLElement;
         if (recruitmentListcon) {
             recruitmentListcon.style.width = isSidebarVisible ? "calc(100vw - 60px)" : "100%";
         }

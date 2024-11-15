@@ -8,12 +8,14 @@ import Generalpage from "./pages/generalpage.tsx";
 import MainPage from "./pages/mainPage.tsx";
 import NotFoundPage from "./pages/nofFoundPage.tsx";
 import GoogleAuthPage from "./pages/googleAuthPage.tsx";
+import NewServerPage from "./pages/newServerPage.tsx";
 function App() {
     return (
         <BrowserRouter>
             <Routes>
                 <Route path="/auth" element={<GoogleAuthPage/>}/>
                 <Route path="/signin" element={<SignInPage/>}/>
+                <Route path="/newServer" element={<NewServerPage/>}/>
                 <Route path="/" element={<MainPage />} />
                 <Route path="/calender" element={<CalenderPage />} />
                 <Route path="/chat" element={<Generalpage />} />

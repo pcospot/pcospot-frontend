@@ -1,4 +1,4 @@
-import { GoogleOAuthProvider, googleLogout, useGoogleLogin } from "@react-oauth/google";
+import { GoogleOAuthProvider, useGoogleLogin } from "@react-oauth/google";
 import { motion } from "framer-motion";
 import "../design/pages/googleAuthPage.css";
 import favicon from "../../public/favicon.svg";
@@ -30,6 +30,11 @@ export default function GoogleAuthPage() {
         onError: handleError,
     });
 
+    // onClick handler
+    const handleLoginClick = () => {
+        login();
+    }
+
     return (
         // GoogleOAuthProvider를 최상위에 배치
         <GoogleOAuthProvider clientId="1002758901477-t40jtpnjl96vdkgonduq44ogantop9ki.apps.googleusercontent.com">
@@ -59,7 +64,7 @@ export default function GoogleAuthPage() {
                     For your efficient Cooperation
                 </motion.p>
                 <div className="login-button-container">
-                    <button onClick={login} className="google-login-button">
+                    <button onClick={handleLoginClick} className="google-login-button">
                         <span>Sign in with Google</span>
                     </button>
                 </div>

@@ -13,7 +13,7 @@ type ModalProps = {
 
 import "./modal.css";
 
-export default function Modal({ width, height, onOpen, onClose, children, className,variants }: ModalProps) {
+export default function Modal({ width, height, onOpen, children, className,variants }: ModalProps) {
     const modalStyle = {
         width: `${width}`,
         height: `${height}`,

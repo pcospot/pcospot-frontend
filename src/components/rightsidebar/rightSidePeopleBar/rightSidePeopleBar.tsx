@@ -1,20 +1,18 @@
 import "../../../design/rightSidePeopleBar.css";
-import ProjectBox from "../../project/projectBox.tsx";
 import profileImage from "../../../assets/profile image.svg";
-import peopleLoad from "../../people/peopleLoad.tsx"
 import PeopleBox from "../../people/peopleBox.tsx";
-import {UserType} from "../../../pages/mainPage.tsx"
-
-type RightSidePeopleBarProps = {
-    user : UserType;
-}
+// import {UserType} from "../../../pages/mainPage.tsx"
+//
+// type RightSidePeopleBarProps = {
+//     user : UserType;
+// }
 
 export default function RightSidePeopleBar() {
-    const company = {
-        name: 'Binford Ltd.',
-        days: '27',
-        progress: '70'
-    };
+    // const company = {
+    //     name: 'Binford Ltd.',
+    //     days: '27',
+    //     progress: '70'
+    // };
 
     const people = [
         {
@@ -44,7 +42,7 @@ export default function RightSidePeopleBar() {
     ];
 
 
-    const divideJob = (item) => {
+    const divideJob = (item : any) => {
         return <PeopleBox key={item.name} name={item.name} online={item.online} img={item.img} job={item.job} />;
     };
 

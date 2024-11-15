@@ -1,4 +1,3 @@
-import React from 'react';
 import Logo from "../../assets/PCOSPOT-LOGO.svg";
 import hambergur from "../../assets/List.svg";
 import "./header.css";

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'; // react의 R은 대문자로 작성
+import { useEffect } from 'react';
 import "./projectBox.css";
 
 type ProjectBoxProps = {

@@ -1,5 +1,4 @@
 import "./notificationBox.css";
-import { useEffect } from "react";
 
 type NotificationBoxProps = {
     json: any;
