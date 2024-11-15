@@ -46,18 +46,20 @@ export default function CalenderSideBar({ schedule }: calenderSideBarProps) {
             <CalenderBox schedule={schedule} />
             <button className="calendarsideBar-button" onClick={() => setIsModalOpen(true)}>Add Events</button>
             {isModalOpen && (
-                <Modal className="calendarsideBar-modal" width="400px" height="400px" onOpen={true} onClose={closeModal}>
+                <Modal className="calendarsideBar-modal" width="600px" height="600px" onOpen={true} onClose={closeModal}>
                     <div className="modal-content">
                         <h3>Add New Event</h3>
                         <input type="text" name="title" placeholder="Event Title" value={newEvent.title} onChange={handleInputChange} />
                         <input type="text" name="message" placeholder="Message" value={newEvent.message} onChange={handleInputChange} />
                         <input type="date" name="date" value={newEvent.date} onChange={handleInputChange} />
-                        <button onClick={addEvent}>Add Event</button>
-                        <button onClick={closeModal}>Cancel</button>
+                        <div className="buttons">
+                            <button onClick={closeModal} className="close-modal-button">Cancel</button>
+                            <button onClick={addEvent} className="add-event-button">Add Event</button>
+                        </div>
                     </div>
                 </Modal>
             )}
-            <div style={{ display: 'flex', flexDirection: 'column', alignItems: "flex-start", width: '218px', gap: "12px" }}>
+            <div style={{display: 'flex', flexDirection: 'column', alignItems: "flex-start", width: '218px', gap: "12px" }}>
                 {company.map(company => (
                     <div key={company} style={{ display: 'flex', gap: "4px", alignItems: "center", justifyContent: "center" }}>
                         <p style={{ fontSize: "12px", color: styleSet(company) }}>●</p>

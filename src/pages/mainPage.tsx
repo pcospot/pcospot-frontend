@@ -6,6 +6,9 @@ import RightSidePeopleBar from "../components/rightsidebar/rightSidePeopleBar/ri
 import ChatInput from "../components/chat/chatInput.tsx";
 import ChatList from "../components/chat/chatList/chatList.tsx";
 import "../components/chat/chatList/chatList.css"
+import {Navigate, useNavigate} from "react-router-dom";
+import {useEffect} from "react";
+import returnLogin from "../function/returnLogin.tsx";
 
 type UserType = {
     id: number
@@ -20,9 +23,13 @@ type UserType = {
 export type {UserType}
 
 function MainPage() {
+    returnLogin()
+
+
 
     return (
         <>
+            <Header/>
             <div className="mainPage">
                 <ChatSidebar/>
                 <div className="chat">

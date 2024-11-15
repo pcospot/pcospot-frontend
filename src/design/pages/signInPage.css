@@ -1,0 +1,83 @@
+.signInPage-container {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    background: #0a0a0a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.signInPage-box {
+    width: 800px;
+    height: 800px;
+    background: #171717;
+    padding: 24px;
+    border-radius: 16px;
+}
+.signInPage-box .logoNhead{
+    display: flex;
+    width: 100%;
+    gap: 4px;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+}
+.signInPage-box .logoNhead h1{
+    color: #0EBF72;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: normal;
+}
+.signInPage-box input,
+.signInPage-box textarea{
+    border-radius: 8px;
+    background: #111111;
+    border: none;
+    width: 100%;
+    height: 40px;
+    color: #fff;
+    padding-left: 16px;
+    margin-bottom: 16px;
+}
+.signInPage-box input:focus,
+.signInPage-box textarea:focus{
+    outline: #00E984 solid 1px;
+}
+.signInPage-box input::placeholder,
+.signInPage-box textarea::placeholder{
+    font-size: 14px;
+    color: #919191;
+}
+.signInPage-box textarea{
+    border: none;
+    resize: none;
+    height: 300px;
+    padding-top: 16px;
+}
+.signInPage-box textarea:focus{
+    outline: none;
+}
+.signInPage-box label{
+    color: #fff;
+    font-size: 14px;
+    display: flex;
+    width: 100%;
+    text-align: center;
+    align-items: center;
+    margin-bottom: 8px;
+}
+.signInButton{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.signInPage-box button{
+    width: 100px;
+    height: 40px;
+    background: #00E984;
+    border-radius: 8px;
+}
+.error-message{
+    color: #e90000;
+}

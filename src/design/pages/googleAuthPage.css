@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+.login-container{
+    width: 100vw;
+    height: 100vh;
+    background: #0a0a0a;
+    position: absolute;
+    z-index: 999;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.login-container h1{
+    color: #0EBF72;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: normal;
+    font-size: 72px;
+}
+.login-container img{
+    width: 72px;
+    height: 72px;
+}
+.login-head{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    gap: 30px;
+    margin-bottom: 1rem;
+}
+.motionP {
+    color: white;
+    font-size: 24px;
+    font-family: 'Montserrat', sans-serif;
+    margin-bottom: 3rem;
+}
+
+/* 커스텀 구글 로그인 버튼 스타일링 */
+.google-login-button {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 12px 24px;
+    background-color: #171717;
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: 500;
+    border-radius: 6px;
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+}
+
+.google-login-button:hover {
+    background-color: #00E984;
+    color: black;
+}
+

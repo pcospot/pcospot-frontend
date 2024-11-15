@@ -80,3 +80,114 @@
     width: 100%;
     margin-bottom:25px;
 }
+.chatsidebar-modal-container{
+    position: absolute;
+    top: 50vh;
+    left: 50vw;
+    transform: translate(-50%,-50%);
+    background: #171717;
+    border-radius: 16px;
+    padding: 24px;
+    z-index: 999;
+    color: white;
+}
+.chatsidebar-modal-container h1{
+    font-size: 20px;
+}
+.chatsidebar-modal-container h3{
+    font-size: 14px;
+    font-weight: normal;
+}
+.chatsidebar-modal-container input{
+    width: 100%;
+    background: #111111;
+    border-radius: 12px;
+    border: none;
+    padding: 10px;
+    color: white;
+}
+.chatsidebar-modal-container input:focus{
+    outline: none;
+    border: none;
+}
+.chatsidebar-modal-container .head{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom:26px;
+}
+.chatsidebar-modal-container .display-name{
+    display: flex;
+    justify-content: start;
+    flex-direction: column;
+    gap: 4px;
+    margin-bottom: 32px;
+}
+.chatsidebar-modal-container .about-me{
+    display: flex;
+    justify-content: start;
+    flex-direction: column;
+    gap: 4px;
+    margin-bottom: 32px;
+}
+.chatsidebar-modal-container .prevNimage{
+    width: 100%;
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    justify-content: space-between;
+}
+.chatsidebar-modal-container .prev{
+    width: 100%;
+    border-radius: 12px;
+    height: 110px;
+    background: #111111;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+.chatsidebar-modal-container .prev>img{
+    width: 46px;
+    height: 46px;
+}
+.chatsidebar-modal-container .prev>p{
+    font-size: 24px;
+    font-weight: bold;
+}
+.chatsidebar-modal-container label{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 393px;
+    border-radius: 12px;
+    height: 110px;
+    background: #111111;
+}
+.chatsidebar-modal-container .addimage{
+    display: flex;
+    flex-direction: column;
+    aligzn-items: center;
+    justify-content: center;
+}
+.chatsidebar-modal-container .buttons{
+    width: 100%;
+    align-self: end;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.chatsidebar-modal-container .buttons .delete{
+    width: 164px;
+    height: 38px;
+    color: #FF5151;
+    font-size: 16px;
+    font-weight: lighter;
+    padding: 8px 16px;
+    background: #111111;
+}
+.chatsidebar-modal-container .resetNsave{
+    display: flex;
+
+}

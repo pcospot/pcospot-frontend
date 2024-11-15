@@ -85,13 +85,18 @@ export default function RecruitmentList() {
         setRoles((prevRoles) => prevRoles.filter((_, i) => i !== index));
     };
 
-    // 여러 파일 처리
     const handleFileSet = (e: ChangeEvent<HTMLInputElement>) => {
         if (e.target.files) {
             const selectedFiles = Array.from(e.target.files); // FileList를 배열로 변환
-            setFiles((prevFiles) => [...prevFiles, ...selectedFiles]); // 이전 파일 배열에 새 파일 추가
+            if (files.length + selectedFiles.length > 3) {
+                alert("최대 3개의 파일만 업로드할 수 있습니다.");
+                return;
+            }
+            setFiles((prevFiles) => [...prevFiles, ...selectedFiles.slice(0, 3 - prevFiles.length)]); // 최대 3개까지만 추가
         }
     };
+
+
 
     const myPostSelected = () => {
         const myPosts = Object.values(recruitementData.posts).filter(
@@ -282,7 +287,7 @@ export default function RecruitmentList() {
                 {files.length != 0 && (
                     <div className="file-previews">
                         {files.map((file, index) => (
-                            <PrevImage key={index} src={file} height="150px"/>
+                            <PrevImage key={index} src={[file]} height="150px" /> // 파일을 배열로 감싸서 전달
                         ))}
                     </div>
                 )}

@@ -14,6 +14,9 @@
     padding: 1vw;
     gap: 1vw;
 }
+.header-container>button:hover{
+    cursor: pointer;
+}
 button{
     display: flex;
     align-items: center;
