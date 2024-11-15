@@ -39,6 +39,10 @@
     padding-left: 16px;
     margin-bottom: 16px;
 }
+.signInPage-box input:focus,
+.signInPage-box textarea:focus{
+    outline: #00E984 solid 1px;
+}
 .signInPage-box input::placeholder,
 .signInPage-box textarea::placeholder{
     font-size: 14px;

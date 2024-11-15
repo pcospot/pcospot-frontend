@@ -65,14 +65,17 @@ export default function RightSideServerBar() {
                 />
             </Link>
             {servers.map((item) => (
-                <ServerButton
-                    key={item.id}
-                    background={item.background}
-                    alarm={item.alarm}
-                    arcaived={item.arcaived}
-                    choose={selectedServer === item.id}
-                    onClick={() => setSelectedServer(item.id)}
-                />
+                <Link to={"/chat"}>
+                    <ServerButton
+                        key={item.id}
+                        background={item.background}
+                        alarm={item.alarm}
+                        arcaived={item.arcaived}
+                        choose={selectedServer === item.id}
+                        onClick={() => setSelectedServer(item.id)}
+                    />
+                </Link>
+
             ))}
             <BarButton
                 src={Plus}

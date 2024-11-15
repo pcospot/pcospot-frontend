@@ -16,11 +16,16 @@ export default function SignInPage() {
 
     const token = localStorage.getItem("accessToken");
     if (token) {
-        const decodedToken = decodeJwt(token);
-        console.log(decodedToken);
+        try {
+            const decodedToken = decodeJwt(token);
+            console.log("Decoded Token:", decodedToken);
+        } catch (error) {
+            console.error("Invalid JWT:", error);
+        }
     } else {
         console.log("No token found");
     }
+
 
     // Form submission handler
     const serverUpload = async () => {
@@ -49,16 +54,9 @@ export default function SignInPage() {
             setError("로그인 과정에서 오류가 발생하였습니다. 다시 시도해주세요");
         } finally {
             setLoading(false);
-            const header = document.getElementsByClassName("header-container")[0];
-            header.style.display = "flex";
             navigate("/");
         }
     };
-
-    useEffect(() => {
-        const header = document.getElementsByClassName("header-container")[0];
-        header.style.display = "none";
-    }, []);  // 의존성 배열을 추가하여, 처음 렌더링할 때만 실행되도록 합니다.
 
     return (
         <div className="signInPage-container">

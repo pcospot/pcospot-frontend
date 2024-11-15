@@ -29,6 +29,7 @@ function MainPage() {
 
     return (
         <>
+            <Header/>
             <div className="mainPage">
                 <ChatSidebar/>
                 <div className="chat">

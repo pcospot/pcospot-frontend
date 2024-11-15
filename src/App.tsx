@@ -6,7 +6,6 @@ import GlobalPage from "./pages/GlobalPage.tsx";
 import DailyScrumPage from "./pages/dailyScrumPage.tsx";
 import Generalpage from "./pages/generalpage.tsx";
 import MainPage from "./pages/mainPage.tsx";
-import ProfilePage from "./pages/profilePage.tsx";
 import NotFoundPage from "./pages/nofFoundPage.tsx";
 import GoogleAuthPage from "./pages/googleAuthPage.tsx";
 function App() {
@@ -21,7 +20,6 @@ function App() {
                 <Route path="/scrum" element={<DailyScrumPage />} />
                 <Route path="/global" element={<GlobalPage />} />
                 <Route path="*" element={<NotFoundPage />} />
-                <Route path="/profile" element={<ProfilePage/>}/>
             </Routes>
         </BrowserRouter>
     );
