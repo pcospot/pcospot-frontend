@@ -1,13 +1,70 @@
 .mainPage{
     display: flex;
-    justify-content: space-between;
-    background-color: #0A0A0A;
-}
-.chat{
-    height: calc(90vh - 60px);
-    min-width: calc(97vw - 544px);
-    width: calc(100vw - 302px);
-    display: grid;
-    align-items: center;
     justify-content: center;
+    align-items: center;
+    gap: 16px;
+    background-color: #0A0A0A;
+    width: 100vw;
+    height: calc(100vh - 60px);
+
+}
+.mainPage-box{
+    width: 400px;
+    height: 500px;
+    border-radius: 16px;
+    background: #171717;
+    padding: 16px;
+    color: white;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 16px;
+}
+.mainPage-box h1{
+    font-size: 20px;
+    font-weight: 300;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.mainPage-box button{
+    border:none;
+    width: 100px;
+    height: 40px;
+    background: #00E984;
+    margin-top: auto;
+}
+.mainpage-schedule{
+    display: flex;
+    width: 90%;
+    justify-content: space-between;
+    align-items: center;
+    height: 50px;
+    border-radius: 16px;
+    background: #111111;
+    padding: 10px;
+    box-sizing: border-box;
+}
+.mainpage-schedule > h3{
+    font-size: 16px;
+    font-weight: normal;
+}
+.mainpage-schedule > p{
+    color: #919191;
+}
+.mainpage-chat{
+    width: 90%;
+    height: 70px;
+    border-radius: 16px;
+    background: #111111;
+    padding: 10px;
+    box-sizing: border-box;
+}
+.mainpage-chat > h3{
+    font-size: 20px;
+    font-weight: normal;
+}
+.mainpage-chat > p{
+    font-size: 16px;
+    color: #919191;
 }
